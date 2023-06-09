@@ -47,7 +47,7 @@
 
 **Postman Collection pre Common Services REST API Evidence Broker a Data Service Directory**
 - https://github.com/slovak-egov/oots-poc/blob/main/postman\
-- https://github.com/slovak-egov/oots-poc/blob/main/postman\OOTS April Projectathon Common Service Requests.postman_collection.json
+- https://github.com/slovak-egov/oots-poc/blob/main/postman/OOTS%20April%20Projectathon%20Common%20Service%20Requests.postman_collection.json
 
 **eDelivery Access Point SK**
 - Domibus z docker image
