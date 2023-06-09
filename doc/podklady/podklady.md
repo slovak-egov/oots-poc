@@ -79,11 +79,10 @@
 		
 **https://code.europa.eu/oots/tdd/tdd_chapters**
 - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM
-		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/External
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/OOTS
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/xlsx
-
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists
+    - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/External
+    - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/OOTS
+    - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/xlsx
 - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/sch #Schematron validation
 - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/sch_fatal_error
 - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xlsx
