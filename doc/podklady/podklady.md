@@ -8,6 +8,7 @@
 **SDG Once-Only Collaborative Space**
 - https://ec.europa.eu/digital-building-blocks/wikis/pages/viewpage.action?spaceKey=SDGOO&title=SDG+OOTS+-+Home+Page
 
+
 **Projectathon - AGM Front-Office - Advanced Gateway to your Meetings**
 - https://webgate.ec.europa.eu/tools/agm/fo/agm.html#/meetings
 
@@ -44,14 +45,21 @@
     - príklad na získanie poskytovateľov dôkazov pre typ dôkazu "EU-Wide Diploma/Bachelor's Degree" (https://projectathon.oots-common-services.eu/main/evidence-types/details/1) za krajinu PL (Poľsko)
       - https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=PL&evidence-type-classification=https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962
 
+**Postman Collection pre Common Services REST API Evidence Broker a Data Service Directory**
+- https://github.com/slovak-egov/oots-poc/blob/main/postman\
+- https://github.com/slovak-egov/oots-poc/blob/main/postman\OOTS April Projectathon Common Service Requests.postman_collection.json
+
 eDelivery Access Point SK
 - Domibus z docker image
   - GUI Domibus http://oots.mirri.tech:8080/domibus/login
   - WSDL Backend http://oots.mirri.tech:8080/domibus/services/backend?wsdl
   - WSDL WS Plugin http://oots.mirri.tech:8080/domibus/services/wsplugin?wsdl
   
-  
-	
+**SoapUI projekt 
+- https://github.com/slovak-egov/oots-poc/blob/main/soapui/
+- https://github.com/slovak-egov/oots-poc/blob/main/soapui/OOTS-eDelivery-AS4-soapui-project.xml
+- https://github.com/slovak-egov/oots-poc/blob/main/soapui/OOTS-CS-LCMInterface-soapui-project.xml
+
 OOTS Evidence Mapping
 - https://ec.europa.eu/digital-building-blocks/wikis/display/SDGOOPE/Evidence+Mapping+-+Once+Only+Technical+System
 - Studying Procedures
@@ -70,23 +78,23 @@ OOTS Evidence Mapping
 		- https://airtable.com/shrBECI1SrT4uxGzp/tbljiEbleZEs4QIp4?backgroundColor=purple&viewControls=on
 		
 https://code.europa.eu/oots/tdd/tdd_chapters
-	https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM
+- https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM
 		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists
 			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/External
 			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/OOTS
 			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/xlsx
-		#Schematron validation
-		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/sch
-		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/sch_fatal_error
-		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xlsx
-		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/DSD
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/EB
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/LCM
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/Request-Response%20Samples
-		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/regrep4
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/sdg
-				https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/sdg/documentation
-			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/xml
+
+- https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/sch #Schematron validation
+- https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/sch_fatal_error
+- https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xlsx
+- https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/DSD
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/EB
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/LCM
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xml/Request-Response%20Samples
+- https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/regrep4
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/sdg
+    - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/sdg/documentation
+  - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/xml
 
