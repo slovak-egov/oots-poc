@@ -18,7 +18,7 @@
 - #2 OOTS Projectathon (Day 3) https://ecconf.webex.com/ecconf/j.php?MTID=mefb62732192a80d470d2cbad8c05400f
 
 **Projectathon - Gazelle**
-- oots-testing.ihe-catalyst.net/gazelle/home.seam
+- https://oots-testing.ihe-catalyst.net/gazelle/home.seam
 
 **Microsoft Teams - GRP-SDG OOTS - Implementers Space**
 - https://teams.microsoft.com/_?tenantId=b24c8b06-522c-46fe-9080-70926f8dddb1#/conversations/unknown?groupId=9c61f091-e860-4f64-92ae-2f361a0cf67d&threadId=19:rMq4qrVW4vUQFF-yggsIIiHQLDYhSsQihBwV_BMpgD01@thread.tacv2&ctx=channel
