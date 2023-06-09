@@ -97,3 +97,8 @@
     - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/sdg/documentation
   - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/xsd/xml
 
+**ProjectathonFiles**
+- Gazelle návod, ako sa registruje SUT (System Under Test) https://github.com/slovak-egov/oots-poc/blob/main/doc/podklady/ProjectathonFiles/Gazelle_HowToRegisterSUT_v1.0.pdf
+- Prezentácia intro k Sample Test Data https://github.com/slovak-egov/oots-poc/blob/main/doc/podklady/ProjectathonFiles/April%20Projectathon%20Sample%20Test%20Data/OOTS_AprilProjectathon_Sample_Test_Data_info.pptx
+- ProjectathonFiles s príkladmi Evidence Requestov a Responsov, ktoré sa posielajú na eDelivery Access Point - Domibus -  http://oots.mirri.tech:8080/domibus/services/backend
+  - https://github.com/slovak-egov/oots-poc/tree/main/doc/podklady/ProjectathonFiles/April%20Projectathon%20Sample%20Test%20Data/Evidence_Requests_Responses
