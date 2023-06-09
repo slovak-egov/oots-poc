@@ -17,10 +17,10 @@
 - #2 OOTS Projectathon (Day 2) https://ecconf.webex.com/ecconf/j.php?MTID=mc4113a80eeaad8ca49791873f270ccd3
 - #2 OOTS Projectathon (Day 3) https://ecconf.webex.com/ecconf/j.php?MTID=mefb62732192a80d470d2cbad8c05400f
 
-**Projectathon - Gazelle
+**Projectathon - Gazelle**
 - oots-testing.ihe-catalyst.net/gazelle/home.seam
 
-** Microsoft Teams - GRP-SDG OOTS - Implementers Space
+** Microsoft Teams - GRP-SDG OOTS - Implementers Space**
 - https://teams.microsoft.com/_?tenantId=b24c8b06-522c-46fe-9080-70926f8dddb1#/conversations/unknown?groupId=9c61f091-e860-4f64-92ae-2f361a0cf67d&threadId=19:rMq4qrVW4vUQFF-yggsIIiHQLDYhSsQihBwV_BMpgD01@thread.tacv2&ctx=channel
 
 **OOTS Common Services Admin portal**
@@ -49,18 +49,18 @@
 - https://github.com/slovak-egov/oots-poc/blob/main/postman\
 - https://github.com/slovak-egov/oots-poc/blob/main/postman\OOTS April Projectathon Common Service Requests.postman_collection.json
 
-eDelivery Access Point SK
+**eDelivery Access Point SK**
 - Domibus z docker image
   - GUI Domibus http://oots.mirri.tech:8080/domibus/login
   - WSDL Backend http://oots.mirri.tech:8080/domibus/services/backend?wsdl
   - WSDL WS Plugin http://oots.mirri.tech:8080/domibus/services/wsplugin?wsdl
   
-**SoapUI projekt 
+**SoapUI projekt**
 - https://github.com/slovak-egov/oots-poc/blob/main/soapui/
 - https://github.com/slovak-egov/oots-poc/blob/main/soapui/OOTS-eDelivery-AS4-soapui-project.xml
 - https://github.com/slovak-egov/oots-poc/blob/main/soapui/OOTS-CS-LCMInterface-soapui-project.xml
 
-OOTS Evidence Mapping
+**OOTS Evidence Mapping**
 - https://ec.europa.eu/digital-building-blocks/wikis/display/SDGOOPE/Evidence+Mapping+-+Once+Only+Technical+System
 - Studying Procedures
 	- 3# - Applying for a tertiary education study financing, such as study grants and loans from a public body or institution.
@@ -77,7 +77,7 @@ OOTS Evidence Mapping
 		- https://ec.europa.eu/digital-building-blocks/wikis/pages/viewpage.action?pageId=668532962
 		- https://airtable.com/shrBECI1SrT4uxGzp/tbljiEbleZEs4QIp4?backgroundColor=purple&viewControls=on
 		
-https://code.europa.eu/oots/tdd/tdd_chapters
+**https://code.europa.eu/oots/tdd/tdd_chapters**
 - https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM
 		https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists
 			https://code.europa.eu/oots/tdd/tdd_chapters/-/tree/master/OOTS-EDM/codelists/External
