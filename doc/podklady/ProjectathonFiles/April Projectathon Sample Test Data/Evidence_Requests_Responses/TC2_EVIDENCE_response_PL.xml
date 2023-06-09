@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+    requestId="urn:uuid:4ffb5281-179d-4578-adf2-39fd13ccc797">
+    <!-- Top Level Slots, providing metadata about the Response and the Evidence Provider -->
+    <rim:Slot name="SpecificationIdentifier">
+        <rim:SlotValue xsi:type="rim:StringValueType"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Value>oots-edm:v1.0</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceResponseIdentifier">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>abd12484-aa7d-4bb7-a697-7b15ab893bab</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="IssueDateTime">
+        <rim:SlotValue xsi:type="rim:DateTimeValueType">
+            <rim:Value>2023-04-21T11:59:31+02:00</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceProvider">
+		<!-- ZZZ preferably, Evidence Providers can update this data to match with the actual Evidence Provider they are sending the request from -->
+        <rim:SlotValue xsi:type="rim:CollectionValueType">
+            <rim:Element xsi:type="rim:AnyValueType">
+                <sdg:Agent>
+				   <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:0204">BR_PL_02</sdg:Identifier>
+				   <sdg:Name lang="EN">PL Ministry of the Projectathon2</sdg:Name>
+                    <sdg:Address>
+                        <sdg:FullAddress>Street</sdg:FullAddress>
+                        <sdg:LocatorDesignator>31</sdg:LocatorDesignator>
+                        <sdg:PostCode>22083</sdg:PostCode>
+                        <sdg:PostCityName>Warsaw</sdg:PostCityName>
+                        <sdg:AdminUnitLevel1>PL</sdg:AdminUnitLevel1>
+                        </sdg:Address>
+                    <sdg:Classification>EP</sdg:Classification>
+                </sdg:Agent>
+            </rim:Element>
+        </rim:SlotValue>
+    </rim:Slot>
+     <rim:Slot name="EvidenceRequester">
+		<!-- ZZZ preferably, Evidence Providers can update this data to match with the actual Evidence Requester they are sending the request to -->
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:Agent>
+		   <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:0190">SK122332239</sdg:Identifier>
+		   <sdg:Name lang="EN">Ministerstvo vnutra</sdg:Name>
+            </sdg:Agent>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:RegistryObjectList>
+        <!--  Absences of any evidence is encoded as a RegistryObjectList that does not contain any RegistryObject elements. -->
+	</rim:RegistryObjectList>  
+</query:QueryResponse>
