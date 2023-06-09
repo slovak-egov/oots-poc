@@ -22,9 +22,11 @@
 **Projectathon - Gazelle**
 - https://oots-testing.ihe-catalyst.net/gazelle/home.seam
 - https://ec.europa.eu/digital-building-blocks/wikis/download/attachments/645595199/Once-Only-Technical-System-Projectathon-Playbook-Annex2-How-to-do-pre-tests-in-Gazelle-V2.00.pdf
+- Connectivity Test Scripts https://gitlab.inria.fr/gazelle/specific-tools/connectivity-test-scripts
 
 **Microsoft Teams - GRP-SDG OOTS - Implementers Space**
 - https://teams.microsoft.com/_?tenantId=b24c8b06-522c-46fe-9080-70926f8dddb1#/conversations/unknown?groupId=9c61f091-e860-4f64-92ae-2f361a0cf67d&threadId=19:rMq4qrVW4vUQFF-yggsIIiHQLDYhSsQihBwV_BMpgD01@thread.tacv2&ctx=channel
+- Schematron usage for the Projectathon is available via  https://teams.microsoft.com/l/message/19:ea8bccf7841149198fb4f69e88528425@thread.tacv2/1686143440803?tenantId=b24c8b06-522c-46fe-9080-70926f8dddb1&groupId=9c61f091-e860-4f64-92ae-2f361a0cf67d&parentMessageId=1685994326019&teamName=GRP-SDG%20OOTS%20%7C%20Implementers%20space&channelName=OOTS%20Projectathon%20-%20General%20channel&createdTime=1686143440803&allowXTenantAccess=false
 
 **OOTS Common Services Admin portal**
 - https://projectathon.oots-common-services.eu/
@@ -57,6 +59,16 @@
   - GUI Domibus http://oots.mirri.tech:8080/domibus/login
   - WSDL Backend http://oots.mirri.tech:8080/domibus/services/backend?wsdl
   - WSDL WS Plugin http://oots.mirri.tech:8080/domibus/services/wsplugin?wsdl
+  - https://oots-testing.ihe-catalyst.net/gazelle/objects/sample.seam?id=61
+    AS4 Public Certificate - | SYSTEM_SK_MIRRI_2_AS4_CERT
+    C3 (sk_test_ap)
+    C4 (BR_SK_01)
+- Domibus CZ
+  - http://domibus.devintra.cz/domibus/services/msh
+  - https://oots-testing.ihe-catalyst.net/gazelle/objects/sample.seam?id=40
+    AS4 Public Certificate - | SYSTEM_CZ_AC_CZ_AS4_CERT
+    C3 (cz_test_ap)
+    C4 (BR_CZ_01)
   
 **SoapUI projekt**
 - https://github.com/slovak-egov/oots-poc/blob/main/soapui/
