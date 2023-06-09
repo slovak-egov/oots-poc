@@ -20,7 +20,7 @@
 **Projectathon - Gazelle**
 - oots-testing.ihe-catalyst.net/gazelle/home.seam
 
-** Microsoft Teams - GRP-SDG OOTS - Implementers Space**
+**Microsoft Teams - GRP-SDG OOTS - Implementers Space**
 - https://teams.microsoft.com/_?tenantId=b24c8b06-522c-46fe-9080-70926f8dddb1#/conversations/unknown?groupId=9c61f091-e860-4f64-92ae-2f361a0cf67d&threadId=19:rMq4qrVW4vUQFF-yggsIIiHQLDYhSsQihBwV_BMpgD01@thread.tacv2&ctx=channel
 
 **OOTS Common Services Admin portal**
