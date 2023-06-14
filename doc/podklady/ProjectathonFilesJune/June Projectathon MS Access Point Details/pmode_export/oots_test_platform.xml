@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<db:configuration xmlns:db="http://domibus.eu/configuration" party="oots_test_platform">
+  <mpcs>
+    <mpc name="defaultMpc" qualifiedName="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/defaultMPC" enabled="true" default="true" retention_downloaded="0" retention_undownloaded="3600"/>
+  </mpcs>
+  <businessProcesses>
+    <roles>
+      <role name="defaultInitiatorRole" value="http://sdg.europa.eu/edelivery/gateway"/>
+      <role name="defaultResponderRole" value="http://sdg.europa.eu/edelivery/gateway"/>
+    </roles>
+    <parties>
+      <partyIdTypes>
+        <partyIdType name="partyTypeUrn" value="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator"/>
+      </partyIdTypes>
+      <party allowChunking="false" endpoint="https://edelivery-projectathon.oots-common-services.eu/domibus/services/msh " name="cs-lcm-projectathon">
+        <identifier partyId="cs-lcm-projectathon" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://edelivery.acc.cs.oots.tech.ec.europa.eu/domibus/services/msh" name="cs-lcm-acceptance">
+        <identifier partyId="cs-lcm-acceptance" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://harmony-ap.simplegob.com/services/msh" name="oots_ap_es">
+        <identifier partyId="oots_ap_es" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://oots.eugo.gov.gr/domibus/services/msh" name="AP_EL_01">
+        <identifier partyId="AP_EL_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://regmo-demo.wspdev.de/domibus/services/msh" name="AP_DE_01">
+        <identifier partyId="AP_DE_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://teszt.edap.gov.hu/domibus/services/msh" name="AP_HU_01">
+        <identifier partyId="AP_HU_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://ootsse.sandbox.digg.se/domibus/services/msh" name="AP_SE_01">
+        <identifier partyId="AP_SE_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://harmony-ap01-sandbox.keha.cloud/services/msh" name="harmony-org1">
+        <identifier partyId="harmony-org1" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://domibus.staging.sdg.gov.mt/domibus/services/msh" name="AP_MT_01">
+        <identifier partyId="AP_MT_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://ootsreqtest.gsis.gr/domibus/services/msh" name="AP_EL_02">
+        <identifier partyId="AP_EL_02" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://sdg.usp.gv.at/scon-webapp/as4" name="AP_AT_01">
+        <identifier partyId="AP_AT_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://gateway-edelivery.westeurope.cloudapp.azure.com:8084/domibus/services/msh" name="so_edelivery2_test_ap">
+        <identifier partyId="so_edelivery2_test_ap" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://185.78.100.44/domibus/services/msh" name="cz_test_ap">
+        <identifier partyId="cz_test_ap" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://edap.test.medius.si/domibus/services/msh" name="AP_SI_01">
+        <identifier partyId="AP_SI_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://edelivery-sandbox.oots-common-services.eu/domibus/services/msh" name="cs-lcm-sandbox">
+        <identifier partyId="cs-lcm-sandbox" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://acc-gateway.rinis.nl/ebms3_oots" name="AP_NL_01">
+        <identifier partyId="AP_NL_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://ootsprojectathon.fsp.services.ta.belgium.be/domibus/services/msh" name="AP_BE_01">
+        <identifier partyId="AP_BE_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://gateway-edelivery.westeurope.cloudapp.azure.com:8083/domibus/services/msh" name="so_edelivery1_test_ap">
+        <identifier partyId="so_edelivery1_test_ap" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://pprdomibus.iap.gov.pt/domibus/services/msh?domain=oots" name="AP_PT_01">
+        <identifier partyId="AP_PT_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://194.102.45.50/domibus/services/msh" name="ro_test_ap">
+        <identifier partyId="ro_test_ap" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://oots-testing-pr-2.westeurope.cloudapp.azure.com:8783/domibus/services/msh" name="oots_test_platform">
+        <identifier partyId="oots_test_platform" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://apsdgit.servizisdg.gov.it/domibus/services/msh" name="apsdgit">
+        <identifier partyId="apsdgit" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://domibus-test.gov.hr:7750/Domibus/services/msh" name="AP_HR_01">
+        <identifier partyId="AP_HR_01" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="https://domibus.mrit.gov.pl/domibus/services/msh" name="pl_test_ap">
+        <identifier partyId="pl_test_ap" partyIdType="partyTypeUrn"/>
+      </party>
+      <party allowChunking="false" endpoint="http://majortom.escatempo.fr:1917/domibus/services/msh" name="AP_FR_01">
+        <identifier partyId="AP_FR_01" partyIdType="partyTypeUrn"/>
+      </party>
+    </parties>
+    <meps>
+      <mep name="oneway" value="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/oneWay"/>
+      <mep name="twoway" value="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/twoWay"/>
+      <binding name="push" value="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/push"/>
+      <binding name="pushAndPush" value="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/pushAndPush"/>
+    </meps>
+    <properties>
+      <property name="originalSenderProperty" key="originalSender" datatype="string" required="true"/>
+      <property name="finalRecipientProperty" key="finalRecipient" datatype="string" required="true"/>
+      <propertySet name="fourCornersPropertySet">
+        <propertyRef property="originalSenderProperty"/>
+        <propertyRef property="finalRecipientProperty"/>
+      </propertySet>
+    </properties>
+    <securities>
+      <security name="noSigNoEnc" policy="doNothingPolicy.xml" signatureMethod="RSA_SHA256"/>
+      <security name="signOnly" policy="signOnly.xml" signatureMethod="RSA_SHA256"/>
+      <security name="eDeliveryAS4Policy_BST" policy="eDeliveryAS4Policy_BST.xml" signatureMethod="RSA_SHA256"/>
+    </securities>
+    <errorHandlings>
+      <errorHandling name="defaultErrorHandling" errorAsResponse="true" businessErrorNotifyProducer="false" businessErrorNotifyConsumer="false" deliveryFailureNotifyProducer="false"/>
+      <errorHandling name="secondErrorHandlingAllTrue" errorAsResponse="true" businessErrorNotifyProducer="true" businessErrorNotifyConsumer="true" deliveryFailureNotifyProducer="true"/>
+    </errorHandlings>
+    <agreements>
+      <agreement name="agreementEmpty" value="" type=""/>
+    </agreements>
+    <services>
+      <service name="queryManager" value="QueryManager" type="urn:oasis:names:tc:ebcore:ebrs:ebms:binding:1.0"/>
+      <service name="testService" value="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/service"/>
+    </services>
+    <actions>
+      <action name="executeQueryRequest" value="ExecuteQueryRequest"/>
+      <action name="executeQueryResponse" value="ExecuteQueryResponse"/>
+      <action name="exceptionResponse" value="ExceptionResponse"/>
+      <action name="testAction" value="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/test"/>
+    </actions>
+    <as4>
+      <receptionAwareness name="receptionAwareness" retry="12;4;CONSTANT" duplicateDetection="true"/>
+      <reliability name="AS4Reliability" nonRepudiation="true" replyPattern="response"/>
+    </as4>
+    <splittingConfigurations>
+      <splitting name="default" fragmentSize="20" compression="true" joinInterval="1440"/>
+    </splittingConfigurations>
+    <legConfigurations>
+      <legConfiguration name="ootsRequestLeg" service="queryManager" action="executeQueryRequest" defaultMpc="defaultMpc" reliability="AS4Reliability" security="eDeliveryAS4Policy_BST" receptionAwareness="receptionAwareness" propertySet="fourCornersPropertySet" errorHandling="defaultErrorHandling" compressPayloads="true"/>
+      <legConfiguration name="ootsResponseLeg" service="queryManager" action="executeQueryResponse" defaultMpc="defaultMpc" reliability="AS4Reliability" security="eDeliveryAS4Policy_BST" receptionAwareness="receptionAwareness" propertySet="fourCornersPropertySet" errorHandling="defaultErrorHandling" compressPayloads="false"/>
+      <legConfiguration name="ootsErrorLeg" service="queryManager" action="exceptionResponse" defaultMpc="defaultMpc" reliability="AS4Reliability" security="eDeliveryAS4Policy_BST" receptionAwareness="receptionAwareness" propertySet="fourCornersPropertySet" errorHandling="defaultErrorHandling" compressPayloads="true"/>
+      <legConfiguration name="testServiceCase" service="testService" action="testAction" defaultMpc="defaultMpc" reliability="AS4Reliability" security="eDeliveryAS4Policy_BST" receptionAwareness="receptionAwareness" propertySet="fourCornersPropertySet" errorHandling="defaultErrorHandling" compressPayloads="true"/>
+    </legConfigurations>
+    <process name="ootsProcess" agreement="agreementEmpty" mep="oneway" binding="push" initiatorRole="defaultInitiatorRole" responderRole="defaultInitiatorRole">
+      <initiatorParties>
+                <initiatorParty name="cs-lcm-projectathon"/><initiatorParty name="cs-lcm-acceptance"/><initiatorParty name="oots_ap_es"/><initiatorParty name="AP_EL_01"/><initiatorParty name="AP_DE_01"/><initiatorParty name="AP_HU_01"/><initiatorParty name="AP_SE_01"/><initiatorParty name="harmony-org1"/><initiatorParty name="AP_MT_01"/><initiatorParty name="AP_EL_02"/><initiatorParty name="AP_AT_01"/><initiatorParty name="so_edelivery2_test_ap"/><initiatorParty name="cz_test_ap"/><initiatorParty name="AP_SI_01"/><initiatorParty name="cs-lcm-sandbox"/><initiatorParty name="AP_NL_01"/><initiatorParty name="AP_BE_01"/><initiatorParty name="so_edelivery1_test_ap"/><initiatorParty name="AP_PT_01"/><initiatorParty name="ro_test_ap"/><initiatorParty name="oots_test_platform"/><initiatorParty name="apsdgit"/><initiatorParty name="AP_HR_01"/><initiatorParty name="pl_test_ap"/><initiatorParty name="AP_FR_01"/></initiatorParties>
+      <responderParties>
+                <responderParty name="cs-lcm-projectathon"/><responderParty name="cs-lcm-acceptance"/><responderParty name="oots_ap_es"/><responderParty name="AP_EL_01"/><responderParty name="AP_DE_01"/><responderParty name="AP_HU_01"/><responderParty name="AP_SE_01"/><responderParty name="harmony-org1"/><responderParty name="AP_MT_01"/><responderParty name="AP_EL_02"/><responderParty name="AP_AT_01"/><responderParty name="so_edelivery2_test_ap"/><responderParty name="cz_test_ap"/><responderParty name="AP_SI_01"/><responderParty name="cs-lcm-sandbox"/><responderParty name="AP_NL_01"/><responderParty name="AP_BE_01"/><responderParty name="so_edelivery1_test_ap"/><responderParty name="AP_PT_01"/><responderParty name="ro_test_ap"/><responderParty name="oots_test_platform"/><responderParty name="apsdgit"/><responderParty name="AP_HR_01"/><responderParty name="pl_test_ap"/><responderParty name="AP_FR_01"/></responderParties>
+      <legs>
+        <leg name="ootsRequestLeg"/>
+        <leg name="ootsResponseLeg"/>
+        <leg name="ootsErrorLeg"/>
+        <leg name="testServiceCase"/>
+      </legs>
+    </process>
+  </businessProcesses>
+</db:configuration>

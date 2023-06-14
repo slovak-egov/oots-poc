@@ -1,0 +1,100 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryRequest id="urn:uuid:7a1e0f05-565d-444b-bcb1-c3d73b09565a" xmlns:ns6="http://www.w3.org/2005/08/addressing" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:ns5="http://www.w3.org/1999/xlink" xmlns:ns8="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:ns7="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:sdg="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0">
+    <rim:Slot name="SpecificationIdentifier">
+        <rim:SlotValue xsi:type="rim:StringValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Value>oots-edm:v1.0</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="IssueDateTime">
+        <rim:SlotValue xsi:type="rim:DateTimeValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Value>2023-04-19T16:41:28.571+03:00</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="Procedure">
+        <rim:SlotValue xsi:type="rim:InternationalStringValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Value>
+                <rim:LocalizedString xml:lang="EN" value="T1"/>
+            </rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="PossibilityForPreview">
+        <rim:SlotValue xsi:type="rim:BooleanValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Value>true</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="ExplicitRequestGiven">
+        <rim:SlotValue xsi:type="rim:BooleanValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Value>true</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="Requirements">
+        <rim:SlotValue xsi:type="rim:CollectionValueType" collectionType="urn:oasis:names:tc:ebxmlregrep:CollectionType:Set" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Element xsi:type="rim:AnyValueType">
+                <sdg:Requirement>
+                    <sdg:Identifier>https://sr.oots.tech.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42</sdg:Identifier>
+                    <sdg:Name lang="EN">Proof of tertiary education diploma/certificate/degree</sdg:Name>
+                </sdg:Requirement>
+            </rim:Element>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceRequester">
+        <rim:SlotValue xsi:type="rim:CollectionValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <rim:Element xsi:type="rim:AnyValueType">
+                <sdg:Agent>
+                    <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:0212">FIKELA001</sdg:Identifier>
+                    <sdg:Name lang="EN">Finnish Pension Institute</sdg:Name>
+                    <sdg:Address>
+                        <sdg:FullAddress>Nordenskiöldinkatu 12</sdg:FullAddress>
+                        <sdg:LocatorDesignator>15</sdg:LocatorDesignator>
+                        <sdg:PostCode>00250</sdg:PostCode>
+                        <sdg:PostCityName>Helsinki</sdg:PostCityName>
+                        <sdg:AdminUnitLevel1>FI</sdg:AdminUnitLevel1>
+                    </sdg:Address>
+                    <sdg:Classification>ER</sdg:Classification>
+                </sdg:Agent>
+            </rim:Element>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceProvider">
+        <rim:SlotValue xsi:type="rim:AnyValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <sdg:Agent>
+                <sdg:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_SE_01</sdg:Identifier>
+                <sdg:Name lang="EN">SE Ministry of the Projectathon</sdg:Name>
+                <sdg:Address>
+                    <sdg:FullAddress>Stockholm</sdg:FullAddress>
+                    <sdg:LocatorDesignator>1</sdg:LocatorDesignator>
+                    <sdg:Thoroughfare>Projectathon street</sdg:Thoroughfare>
+                    <sdg:AdminUnitLevel1>SE</sdg:AdminUnitLevel1>
+                </sdg:Address>
+                <sdg:Classification>EP</sdg:Classification>
+            </sdg:Agent>
+        </rim:SlotValue>
+    </rim:Slot>
+    <query:ResponseOption returnType="LeafClassWithRepositoryItem"/>
+    <query:Query queryDefinition="DocumentQuery">
+        <rim:Slot name="NaturalPerson">
+            <rim:SlotValue xsi:type="rim:AnyValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <sdg:Person>
+                    <sdg:LevelOfAssurance>High</sdg:LevelOfAssurance>
+                    <sdg:Identifier schemeID="eidas">DE/DE/123456787</sdg:Identifier>
+                    <sdg:FamilyName>Smith</sdg:FamilyName>
+                    <sdg:GivenName>Jonas</sdg:GivenName>
+                    <sdg:DateOfBirth>1999-03-01</sdg:DateOfBirth>
+                </sdg:Person>
+            </rim:SlotValue>
+        </rim:Slot>
+        <rim:Slot name="EvidenceRequest">
+            <rim:SlotValue xsi:type="rim:AnyValueType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <sdg:DataServiceEvidenceType>
+                    <sdg:Identifier>04297820-e502-4359-8efc-c14f916cf2a1</sdg:Identifier>
+                    <sdg:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</sdg:EvidenceTypeClassification>
+                    <sdg:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</sdg:Title>
+                    <sdg:DistributedAs>
+                        <sdg:Format>application/pdf</sdg:Format>
+                    </sdg:DistributedAs>
+                    <sdg:AuthenticationLevelOfAssurance>Low</sdg:AuthenticationLevelOfAssurance>
+                </sdg:DataServiceEvidenceType>
+            </rim:SlotValue>
+        </rim:Slot>
+    </query:Query>
+</query:QueryRequest>

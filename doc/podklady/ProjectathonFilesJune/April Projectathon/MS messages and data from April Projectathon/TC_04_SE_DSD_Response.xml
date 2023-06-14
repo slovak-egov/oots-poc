@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:p4s="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:50034960-0495-4ea7-942a-134853059993">
+            <rim:Slot name="DataServiceEvidenceType">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <p4s:DataServiceEvidenceType>
+                        <p4s:Identifier>04297820-e502-4359-8efc-c14f916cf2a1</p4s:Identifier>
+                        <p4s:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</p4s:EvidenceTypeClassification>
+                        <p4s:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</p4s:Title>
+                        <p4s:DistributedAs>
+                            <p4s:Format>application/pdf</p4s:Format>
+                        </p4s:DistributedAs>
+                        <p4s:AccessService>
+                            <p4s:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator">AP_SE_01</p4s:Identifier>
+                            <p4s:ConformsTo>oots-edm:v1.0</p4s:ConformsTo>
+                            <p4s:Publisher>
+<p4s:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_SE_01</p4s:Identifier>
+<p4s:Name lang="EN">SE Ministry of the Projectathon</p4s:Name>
+<p4s:Address>
+    <p4s:FullAddress>Stockholm</p4s:FullAddress>
+    <p4s:LocatorDesignator>1</p4s:LocatorDesignator>
+    <p4s:Thoroughfare>Projectathon street</p4s:Thoroughfare>
+    <p4s:AdminUnitLevel1>SE</p4s:AdminUnitLevel1>
+</p4s:Address>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+                            </p4s:Publisher>
+                        </p4s:AccessService>
+                        <p4s:AuthenticationLevelOfAssurance>Low</p4s:AuthenticationLevelOfAssurance>
+                    </p4s:DataServiceEvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>

@@ -1,0 +1,76 @@
+<query:QueryRequest xmlns:oots="http://oots.rinis.nl/evidenceBevraging/ver/0/5/3"
+                    xmlns:p4s="http://data.europa.eu/p4s"
+                    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+                    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+                    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+                    xmlns:sdg="http://data.europa.eu/p4s"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xml:lang="AT"
+                    id="urn:uuid:da6b22c2-e668-4d97-b5c2-f4ff3a998319">
+   <rim:Slot name="SpecificationIdentifier">
+      <rim:SlotValue xsi:type="rim:StringValueType">
+         <rim:Value>oots-edm:v1.0</rim:Value>
+      </rim:SlotValue>
+   </rim:Slot>
+   <rim:Slot name="IssueDateTime">
+      <rim:SlotValue xsi:type="rim:DateTimeValueType">
+         <rim:Value>2023-04-19T13:31:58.97946441+02:00</rim:Value>
+      </rim:SlotValue>
+   </rim:Slot>
+   <rim:Slot name="PossibilityForPreview">
+      <rim:SlotValue xsi:type="rim:BooleanValueType">
+         <rim:Value>false</rim:Value>
+      </rim:SlotValue>
+   </rim:Slot>
+   <rim:Slot name="ExplicitRequestGiven">
+      <rim:SlotValue xsi:type="rim:BooleanValueType">
+         <rim:Value>true</rim:Value>
+      </rim:SlotValue>
+   </rim:Slot>
+   <rim:Slot name="EvidenceRequester">
+      <rim:SlotValue xsi:type="rim:CollectionValueType">
+         <rim:Element xsi:type="rim:AnyValueType">
+            <sdg:Agent>
+               <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:0106">50973029</sdg:Identifier>
+               <sdg:Name lang="EN">Dienst Uitvoering Onderwijs</sdg:Name>
+               <sdg:Classification>IP</sdg:Classification>
+            </sdg:Agent>
+         </rim:Element>
+      </rim:SlotValue>
+   </rim:Slot>
+   <rim:Slot name="EvidenceProvider">
+      <rim:SlotValue xsi:type="rim:AnyValueType">
+         <sdg:Agent>
+            <sdg:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_SE_01</sdg:Identifier>
+            <sdg:Name>SE Ministry of the Projectathon</sdg:Name>
+         </sdg:Agent>
+      </rim:SlotValue>
+   </rim:Slot>
+   <query:ResponseOption returnType="LeafClassWithRepositoryItem"/>
+   <query:Query queryDefinition="DocumentQuery">
+      <rim:Slot name="NaturalPerson">
+         <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:Person>
+               <sdg:LevelOfAssurance>High</sdg:LevelOfAssurance>
+               <sdg:FamilyName>Sweden</sdg:FamilyName>
+               <sdg:GivenName>John</sdg:GivenName>
+               <sdg:DateOfBirth>1998-04-07</sdg:DateOfBirth>
+            </sdg:Person>
+         </rim:SlotValue>
+      </rim:Slot>
+      <rim:Slot name="EvidenceRequest">
+         <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:DataServiceEvidenceType xmlns="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0">
+               <sdg:Identifier>04297820-e502-4359-8efc-c14f916cf2a1</sdg:Identifier>
+               <sdg:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</sdg:EvidenceTypeClassification>
+               <sdg:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</sdg:Title>
+               <sdg:DistributedAs>
+                  <sdg:Format>application/pdf</sdg:Format>
+               </sdg:DistributedAs>
+            </sdg:DataServiceEvidenceType>
+         </rim:SlotValue>
+      </rim:Slot>
+   </query:Query>
+</query:QueryRequest>

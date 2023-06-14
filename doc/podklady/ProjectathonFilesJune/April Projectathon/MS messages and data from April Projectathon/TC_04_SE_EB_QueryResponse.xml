@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:p4s="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:f9618286-4ffe-4bd8-85b5-6a967bd3a60c">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <p4s:Requirement>
+                        <p4s:Identifier>https://sr.oots.tech.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42</p4s:Identifier>
+                        <p4s:Name lang="EN">Proof of tertiary education diploma/certificate/degree</p4s:Name>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>fd9954ca-7830-4262-b301-faae80b02a5f</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>SE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>9ccddb77-2c47-446b-ae73-d15cae5a6d69</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>SE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>6612eec3-ac7c-4868-be59-18c49b4421ae</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>DE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>03ebfdb0-e88b-4a5e-ba6a-bc6952e90410</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>DE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>62d63dc5-f70e-49f4-8b69-d9e2c1bfae95</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>EL</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>880dc759-aac8-409d-8b44-1e398b163e7d</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>EL</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>e099ffd9-e24e-4dab-88ce-05a45a5496f5</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>CY</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>6d207762-3f76-43b8-9110-4e4e85cd0abb</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>CY</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>d595e6bf-100a-4fca-8012-56569305995a</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>SI</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>76672d3b-d420-43c7-bffc-cf61b991b2cf</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>SI</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>ae623a2e-eac9-40d4-8230-11ac50f39ae5</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>IT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>8769b6c7-1320-4814-b50c-8de3b6091f74</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>IT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>da067fc5-9852-4e6a-981b-a47af5d33fd5</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>LV</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>7564b7c0-f9b7-4fb2-9e7a-616cdf4781ea</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>LV</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>75032276-178a-4882-9c01-c51868d589b0</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>LU</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>7f88c4e9-50fc-49fd-8bb7-328626398b24</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>LU</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>213ab02c-3167-4d82-816d-f97a74023312</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>ES</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>195009a9-e33d-4ff0-b685-d611c74331c4</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>ES</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>ff4c7d83-5ad8-4142-b3cc-8065020028ae</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>AT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>f39898bd-1ba5-4aae-972e-39a79663f2fb</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>AT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>279a1a2e-65ec-4de8-a2bb-ac869812ae53</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>FI</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>37d0f784-ae32-48d6-83f0-ac218e77e643</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>FI</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>c08b4719-dd46-4286-9d89-19b9cfa608a9</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>NL</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>0e7942bc-19fe-4ccd-a603-8e9520d37b67</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>NL</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>6482af46-c487-4503-b8c1-3da80349715f</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>PT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>90e4e1a6-965f-4e3b-b4d9-d98f2720d37d</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>PT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>34b3bcbf-d2c2-4527-a838-6baa70b44593</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>EE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>5e1fb125-4cc7-44ee-9c4e-8552ff8878ad</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>EE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>58516ea6-54c3-4233-b416-202a5986eb6d</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>IE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>a013c47a-5a26-4767-9a06-b7ef4c12335f</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>IE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>c72fe865-731e-469d-a8fd-d24032531bd5</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>RO</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>5adcf22b-393a-4be7-a5f7-99aea1869451</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>RO</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>f03150a2-d826-4536-abb3-4b106b1420ed</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>HU</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>da2a95f1-acb0-4ca9-94a0-5f8406f1fe98</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>HU</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>5120c0b7-01ad-4250-9f63-e067b5a13dda</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>LT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>88618688-968d-47ce-8966-77eb7a00b6b6</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>LT</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>b91f013f-3685-4c1f-92a7-40fd7bf41e47</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>BE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>662feda9-c9d3-48ac-b459-4bfbed946808</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>BE</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>ace840ab-7eb8-4370-85a1-828d3c7d0a41</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>EC</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>1b8e71d6-f333-4adf-90ef-1a43a3847df7</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>EC</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>41eaa8e4-797e-49fa-8114-a75dfb5ee4dc</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>SK</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>d59a793c-3823-4985-a48c-28fb545ed203</p4s:Identifier>
+                            <p4s:Title lang="EN">Applying for a tertiary education study financing, such as study grants and loans from a public body or institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T1</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>PL</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>b7d06679-e583-4f87-9f88-8ad63121c9bc</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>SK</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:ReferenceFramework>
+                            <p4s:Identifier>25b0d4fa-c200-49cc-b664-7edb7ac74c37</p4s:Identifier>
+                            <p4s:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</p4s:Title>
+                            <p4s:RelatedTo>
+<p4s:Identifier>T2</p4s:Identifier>
+                            </p4s:RelatedTo>
+                            <p4s:Jurisdiction>
+<p4s:AdminUnitLevel1>PL</p4s:AdminUnitLevel1>
+                            </p4s:Jurisdiction>
+                        </p4s:ReferenceFramework>
+                        <p4s:EvidenceTypeList>
+                            <p4s:Identifier>12697faf-b55c-41d5-b82e-45450f727347</p4s:Identifier>
+                            <p4s:EvidenceType>
+<p4s:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</p4s:EvidenceTypeClassification>
+<p4s:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</p4s:Title>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>DE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>EL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>CY</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SI</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>IT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>LV</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>LU</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>ES</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>AT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>FI</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>NL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>PT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>EE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>IE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>RO</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>HU</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>LT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>BE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>EC</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SK</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>PL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+                            </p4s:EvidenceType>
+                        </p4s:EvidenceTypeList>
+                        <p4s:EvidenceTypeList>
+                            <p4s:Identifier>c7ecd424-239d-431b-a5ac-04c990402288</p4s:Identifier>
+                            <p4s:EvidenceType>
+<p4s:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</p4s:EvidenceTypeClassification>
+<p4s:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</p4s:Title>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>DE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>EL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>CY</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SI</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>IT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>LV</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>LU</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>ES</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>AT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>FI</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>NL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>PT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>EE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>IE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>RO</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>HU</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>LT</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>BE</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>EC</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>SK</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>PL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+                            </p4s:EvidenceType>
+                        </p4s:EvidenceTypeList>
+                        <p4s:EvidenceTypeList>
+                            <p4s:Identifier>25104ead-6e9d-4223-bd53-b4db6ef2769a</p4s:Identifier>
+                            <p4s:EvidenceType>
+<p4s:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/PL/b72e47d4-5e02-4900-8a7d-8c1b7c82c2a9</p4s:EvidenceTypeClassification>
+<p4s:Title lang="EN">PL_no_pdf_evidence</p4s:Title>
+<p4s:Jurisdiction>
+    <p4s:AdminUnitLevel1>PL</p4s:AdminUnitLevel1>
+</p4s:Jurisdiction>
+                            </p4s:EvidenceType>
+                        </p4s:EvidenceTypeList>
+                    </p4s:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>

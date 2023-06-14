@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EvidenceRequest xmlns="http://oots.rinis.nl/evidenceBevraging/ver/0/5/3" xmlns:ns2="http://schemas.xmlsoap.org/wsdl/">
+    <NaturalPerson>
+        <LevelOfAssurance>High</LevelOfAssurance>
+        <FamilyName>Sweden</FamilyName>
+        <GivenName>John</GivenName>
+        <DateOfBirth>1998-04-07</DateOfBirth>
+    </NaturalPerson>
+    <Metadata>
+        <PossibilityForPreview>false</PossibilityForPreview>
+        <ExplicitRequestGiven>true</ExplicitRequestGiven>
+    </Metadata>
+    <RequirementId>https://sr.oots.tech.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42</RequirementId>
+    <TargetCountry>SE</TargetCountry>
+    <EvidenceRequester>
+        <Identifier EasNlScheme="KVK">50973029</Identifier>
+        <Name>Dienst Uitvoering Onderwijs</Name>
+    </EvidenceRequester>
+    <CommonServiceData>
+        <C3PartyId SchemeId="urn:cef.eu:names:identifier:EAS:9914">oots_test_platform</C3PartyId>
+        <C4PartyId SchemeId="urn:cef.eu:names:identifier:EAS:9915">BR_AT_01</C4PartyId>
+        <EvidenceProviderName>AT Ministry of Education</EvidenceProviderName>
+        <DataServiceEvidenceTypeIdentifier>f61d54c3-0035-4e41-807c-2c7e2c8ba149</DataServiceEvidenceTypeIdentifier>
+        <DataServiceEvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</DataServiceEvidenceTypeClassification>
+        <DataServiceEvidenceTypeTitle>EU-Wide Diploma/Bachelor's Degree</DataServiceEvidenceTypeTitle>
+        <DataServiceEvidenceTypeFormat>http://publications.europa.eu/resource/authority/file-type/PDF</DataServiceEvidenceTypeFormat>
+    </CommonServiceData>
+</EvidenceRequest>
