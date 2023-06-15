@@ -35,7 +35,7 @@
                     <sdg:Name lang="SK">Ministerstvo školstva, vedy, výskumu a športu Slovenskej republiky</sdg:Name>
                     <sdg:Name lang="EN">Ministry of Education, Science, Research and Sport of the Slovak Republic</sdg:Name>
                      <sdg:Address>
-                        <sdg:FullAddress>Stromová 1</sdg:FullAddress>
+                        <sdg:FullAddress>Stromová 1, 81330, Bratislava - Mestská časť Nové mesto</sdg:FullAddress>
                         <sdg:LocatorDesignator>1</sdg:LocatorDesignator>
                         <sdg:PostCode>81330</sdg:PostCode>
                         <sdg:PostCityName>Bratislava</sdg:PostCityName>
@@ -78,8 +78,9 @@
                     </sdg:IssuingAuthority>
                     <sdg:IsConformantTo>
                         <sdg:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</sdg:EvidenceTypeClassification>
-                        <sdg:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</sdg:Title>
-                        <sdg:Description lang="EN">vysokoškolské doktorandské vzdelanie dosiahnuté absolvovaním štúdia v doktorandských štúdijných programoch, postgraduálne štúdium a vedecká výchova</sdg:Description>
+                        <sdg:Title lang="en">Proof of tertiary education diploma/certificate/degree</sdg:Title>
+                        <sdg:Title lang="sk">Potvrdenie o vysokoškolskom vzdelaní</sdg:Title>
+        <sdg:Description lang="EN">vysokoškolské doktorandské vzdelanie dosiahnuté absolvovaním štúdia v doktorandských štúdijných programoch, postgraduálne štúdium a vedecká výchova</sdg:Description>
                     </sdg:IsConformantTo>
                     <sdg:IssuingDate>2016-11-11</sdg:IssuingDate>
                     <sdg:Distribution>
