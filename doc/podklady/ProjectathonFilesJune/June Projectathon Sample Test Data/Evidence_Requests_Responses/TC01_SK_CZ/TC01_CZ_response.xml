@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+    xmlns:sdg="http://data.europa.eu/p4s"
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" 
+    requestId="urn:uuid:4ffb5281-179d-4578-adf2-39fd13ccc797">
+    
+ 
+    <!-- Top Level Slots, providing metadata about the Response and the Evidence Provider -->
+    <rim:Slot name="SpecificationIdentifier">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>oots-edm:v1.0</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceResponseIdentifier">
+        <rim:SlotValue xsi:type="rim:StringValueType">
+            <rim:Value>166155eb-d7a7-4cac-9086-8a85f0116462</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="IssueDateTime">
+        <rim:SlotValue xsi:type="rim:DateTimeValueType">
+            <rim:Value>2023-06-14T14:10:10.872Z</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="ResponseAvailableDateTime">
+        <rim:SlotValue xsi:type="rim:DateTimeValueType">
+            <rim:Value>2023-06-14T14:12:10.872Z</rim:Value>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceProvider">
+        <rim:SlotValue xsi:type="rim:CollectionValueType">
+            <rim:Element xsi:type="rim:AnyValueType">
+                <sdg:Agent>
+                    <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:9930">CZ73524311</sdg:Identifier>
+                    <sdg:Name lang="EN">Civil Registration Office Praha I</sdg:Name>
+                    <sdg:Address>
+                        <sdg:FullAddress>Adresní 284, Praha 3, 73215</sdg:FullAddress>
+                        <sdg:LocatorDesignator>5</sdg:LocatorDesignator>
+                        <sdg:PostCode>73215</sdg:PostCode>
+                        <sdg:PostCityName>Praha</sdg:PostCityName>
+                        <sdg:Thoroughfare>Blabla</sdg:Thoroughfare>
+                        <sdg:AdminUnitLevel1>CZ</sdg:AdminUnitLevel1>
+                        <sdg:AdminUnitLevel2>CZ3</sdg:AdminUnitLevel2>
+                    </sdg:Address>
+                    <sdg:Classification>EP</sdg:Classification>
+                </sdg:Agent>
+            </rim:Element>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceRequester">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+            <sdg:Agent>
+                <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:0096">CZ22233223</sdg:Identifier>
+                <sdg:Name lang="EN">Czech University Portal</sdg:Name>
+            </sdg:Agent>
+        </rim:SlotValue>
+    </rim:Slot>
+    <rim:RegistryObjectList>
+        <rim:RegistryObject xsi:type="rim:ExtrinsicObjectType" id="urn:uuid:f073cbe2-cf2a-4f46-b9ff-d4b0fde53ab1">
+             <rim:Slot name="EvidenceMetadata">
+                 <rim:SlotValue xsi:type="rim:AnyValueType">
+                     <sdg:Evidence>
+                         <sdg:Identifier>37a169f1-9cf6-4aa8-ac24-b083fa569173</sdg:Identifier>
+                         <sdg:IsAbout>
+                             <sdg:NaturalPerson>
+                                 <sdg:Identifier schemeID="eidas">CZ/SK/123123123</sdg:Identifier>
+                                 <sdg:FamilyName>Smith</sdg:FamilyName>
+                                 <sdg:GivenName>John</sdg:GivenName>
+                                 <sdg:DateOfBirth>1970-03-01</sdg:DateOfBirth>
+                             </sdg:NaturalPerson>
+                         </sdg:IsAbout>
+                         <sdg:IssuingAuthority>
+                             <sdg:Identifier schemeID="urn:cef.eu:names:identifier:EAS:9930">C73524311</sdg:Identifier>
+                             <sdg:Name lang="EN">Civil Registration Office Praha I</sdg:Name>
+                         </sdg:IssuingAuthority>
+                         <sdg:IsConformantTo>
+                             <sdg:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</sdg:EvidenceTypeClassification>
+                             <sdg:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</sdg:Title>
+                             <sdg:Title lang="CS">Bakalářská/inženýrský diplom</sdg:Title>
+                             <sdg:Description lang="EN">The description that the OOTS team specified as static data for this Projectathon related to the EU-Wide evidence</sdg:Description>
+                             <sdg:Description lang="CS">Blabla bla bla</sdg:Description>
+                         </sdg:IsConformantTo>
+                         <sdg:IssuingDate>1970-03-03</sdg:IssuingDate>
+                         <sdg:Distribution>
+                             <sdg:Format>application/pdf</sdg:Format>
+                             <sdg:Language>CS</sdg:Language>
+                             <sdg:ConformsTo>https://sr.oots.tech.europa.eu/distributions/certificate-of-birth-1.0.0</sdg:ConformsTo>
+                             <sdg:Transformation>https://sr.oots.tech.europa.eu/distributions/certificate-of-birth-1.0.0/age-of-majority</sdg:Transformation>
+                         </sdg:Distribution>
+                         <sdg:ValidityPeriod>
+                             <sdg:StartDate>2023-01-19</sdg:StartDate>
+                             <sdg:EndDate>2024-05-19</sdg:EndDate>
+                         </sdg:ValidityPeriod>
+                     </sdg:Evidence>      
+                 </rim:SlotValue>
+             </rim:Slot>           
+             <!-- The attached Document Provided as Evidence. Points to an AS4 attachment -->
+             <rim:RepositoryItemRef xlink:href="cid:attachment100001@example.oots.eu" xlink:title="EuWideDiploma"/>
+         </rim:RegistryObject>
+    </rim:RegistryObjectList>  
+</query:QueryResponse>

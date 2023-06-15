@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns2:submitResponse xmlns:ns2="http://org.ecodex.backend/1_1/" xmlns:ns3="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:ns5="http://www.w3.org/2003/05/soap-envelope">
+         <messageID>ef33ee6a-0b6e-11ee-b65a-0242ac120003@domibus.eu</messageID>
+      </ns2:submitResponse>
+   </soap:Body>
+</soap:Envelope>
