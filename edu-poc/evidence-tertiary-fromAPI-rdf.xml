@@ -29,6 +29,18 @@
         <dct:publisher>
             <m8g:PublicOrganization rdf:about="https://data.gov.sk/id/legal-subject/00164381">
                 <skos:prefLabel xml:lang="sk">Ministerstvo školstva, vedy, výskumu a športu Slovenskej republiky</skos:prefLabel>
+                <skos:prefLabel xml:lang="en">Ministry of Education, Science, Research and Sport of the Slovak Republic</skos:prefLabel>
+                <locn:address>
+                    <locn:Address>
+                        <locn:fullAddress rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stromová 1, 81330, Bratislava - Mestská časť Nové mesto</locn:fullAddress>
+                        <locn:locatorDesignator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</locn:locatorDesignator>
+                        <locn:postName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bratislava</locn:postName>
+                        <locn:postCode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">81330</locn:postCode>
+                        <locn:adminUnitL1 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SK</locn:adminUnitL1>
+                        <locn:adminUnitL2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SK0103529346</locn:adminUnitL2>
+                        <loca:lau2 rdf:resource="https://data.gov.sk/id/lau2/SK0103529346"/>
+                    </locn:Address>
+                </locn:address>
             </m8g:PublicOrganization>
         </dct:publisher>
         <dct:subject>
