@@ -1,0 +1,187 @@
+1. Evidence Broker - requirement by procedure - SK
+REQUEST:
+https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id=T2&country-code=SK
+RESPONSE:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:oots="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:078e44e7-217b-48f7-a803-0667259a93c5">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <oots:Requirement>
+                        <oots:Identifier>https://sr.oots.tech.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42</oots:Identifier>
+                        <oots:Name lang="EN">Proof of tertiary education diploma/certificate/degree</oots:Name>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>4719c24d-0dc6-484d-940b-e0843b73a25b</oots:Identifier>
+                            <oots:Title lang="EN">Submitting an initial application for admission to public tertiary education institution</oots:Title>
+                            <oots:RelatedTo>
+                                <oots:Identifier>T2</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+                                <oots:AdminUnitLevel1>SK</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                    </oots:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>
+
+2. Evidence Broker - evidence type by requirement - PL
+**********************************************************************************************************************
+REQUEST:
+https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code=PL&requirement-id=https://sr.oots.tech.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42
+RESPONSE:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:oots="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:e9af3907-1a12-4200-a658-4abfe1396380">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <oots:Requirement>
+                        <oots:Identifier>https://sr.oots.tech.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42</oots:Identifier>
+                        <oots:Name lang="EN">Proof of tertiary education diploma/certificate/degree</oots:Name>
+                        <oots:ReferenceFramework>
+...
+                        </oots:ReferenceFramework>
+                        <oots:EvidenceTypeList>
+                            <oots:Identifier>209ba6ae-f841-4e9f-87fd-55054a1b39b9</oots:Identifier>
+                            <oots:EvidenceType>
+                                <oots:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</oots:EvidenceTypeClassification>
+                                <oots:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</oots:Title>
+                                <oots:Jurisdiction>
+                                    <oots:AdminUnitLevel1>PL</oots:AdminUnitLevel1>
+                                </oots:Jurisdiction>
+                            </oots:EvidenceType>
+                        </oots:EvidenceTypeList>
+                    </oots:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>
+
+3. Data Service Directory - data service by evidence type - PL
+**********************************************************************************************************************
+REQUEST:
+https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=PL&evidence-type-classification=https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962
+RESPONSE:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:oots="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:3a2882fd-57fb-499b-82f5-572b6ebed348">
+            <rim:Slot name="DataServiceEvidenceType">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <oots:DataServiceEvidenceType>
+                        <oots:Identifier>3406db1e-7a1a-48d3-8922-72260bd66386</oots:Identifier>
+                        <oots:EvidenceTypeClassification>https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</oots:EvidenceTypeClassification>
+                        <oots:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</oots:Title>
+                        <oots:DistributedAs>
+                            <oots:Format>application/pdf</oots:Format>
+                        </oots:DistributedAs>
+                        <oots:AccessService>
+                            <oots:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator">pl_test_ap</oots:Identifier>
+                            <oots:ConformsTo>oots-edm:v1.0</oots:ConformsTo>
+                            <oots:Publisher>
+                                <oots:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_PL_01</oots:Identifier>
+                                <oots:Name lang="EN">PL Ministry of the Projectathon</oots:Name>
+                                <oots:Address>
+                                    <oots:AdminUnitLevel1>PL</oots:AdminUnitLevel1>
+                                </oots:Address>
+                                <oots:Jurisdiction>
+                                    <oots:AdminUnitLevel1>PL</oots:AdminUnitLevel1>
+                                </oots:Jurisdiction>
+                            </oots:Publisher>
+                        </oots:AccessService>
+                        <oots:AuthenticationLevelOfAssurance>Low</oots:AuthenticationLevelOfAssurance>
+                    </oots:DataServiceEvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>
+
+4. pripravit request TC01_Request_PL.xml, ktory sa vlozi ako payload base64 encoded do bodu 5.
+
+5. V SoapUI vlozit obsah TC01_Request_PL.xml do requestu na Domibus
+http://oots.mirri.tech:8080/domibus/services/backend
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/" xmlns:_1="http://org.ecodex.backend/1_1/" xmlns:xm="http://www.w3.org/2005/05/xmlmime">
+   <soap:Header>
+      <ns:Messaging>
+         <ns:UserMessage>           
+            <ns:PartyInfo>
+               <ns:From>
+                  <ns:PartyId type="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator">sk_test_ap</ns:PartyId>
+                  <ns:Role>http://sdg.europa.eu/edelivery/gateway</ns:Role>
+               </ns:From>
+               <ns:To>
+                  <ns:PartyId type="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator">pl_test_ap</ns:PartyId>
+                  <ns:Role>http://sdg.europa.eu/edelivery/gateway</ns:Role>
+               </ns:To>
+            </ns:PartyInfo>
+            <ns:CollaborationInfo>
+               <ns:Service type="urn:oasis:names:tc:ebcore:ebrs:ebms:binding:1.0">QueryManager</ns:Service>
+               <ns:Action>ExecuteQueryRequest</ns:Action>
+               <ns:ConversationId>a7bfdfd0-6777-4096-9496-595aa8c7d251</ns:ConversationId>
+            </ns:CollaborationInfo>
+            <ns:MessageProperties>
+               <ns:Property name="originalSender">urn:oasis:names:tc:ebcore:partyid-type:unregistered:C1</ns:Property>
+               <ns:Property name="finalRecipient">urn:oasis:names:tc:ebcore:partyid-type:unregistered:C4</ns:Property>
+            </ns:MessageProperties>
+            <ns:PayloadInfo>
+               <ns:PartInfo href="cid:regrep@oots.eu">
+                  <ns:PartProperties>
+                     <ns:Property name="MimeType">application/x-ebrs+xml</ns:Property>
+                     <ns:Property name="PayloadName">request.xml</ns:Property>
+                  </ns:PartProperties>
+               </ns:PartInfo>
+            </ns:PayloadInfo>
+         </ns:UserMessage>
+      </ns:Messaging>
+   </soap:Header>
+   <soap:Body>
+      <_1:submitRequest>
+         <payload payloadId="cid:regrep@oots.eu" contentType="application/x-ebrs+xml">
+            <value>***base64encoded-TC01_Request_PL.xml***</value>
+         </payload>
+      </_1:submitRequest>
+   </soap:Body>
+</soap:Envelope>
+
+6. SoapUI request getMessageErrors
+REQUEST:
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:_1="http://org.ecodex.backend/1_1/">
+   <soap:Header/>
+   <soap:Body>
+      <_1:getErrorsRequest>
+         <messageID>98b66f42-0c25-11ee-b65a-0242ac120003@domibus.eu</messageID>
+      </_1:getErrorsRequest>
+   </soap:Body>
+</soap:Envelope>
+RESPONSE:
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns2:getMessageErrorsResponse xmlns:ns2="http://org.ecodex.backend/1_1/" xmlns:ns3="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:ns5="http://www.w3.org/2003/05/soap-envelope"/>
+   </soap:Body>
+</soap:Envelope>
+
+7. SouapUI request getStatus
+REQUEST:
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:_1="http://org.ecodex.backend/1_1/">
+   <soap:Header/>
+   <soap:Body>
+      <_1:statusRequest>
+         <messageID>98b66f42-0c25-11ee-b65a-0242ac120003@domibus.eu</messageID>
+      </_1:statusRequest>
+   </soap:Body>
+</soap:Envelope>
+RESPONSE:
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <soap:Body>
+      <ns2:getStatusResponse xmlns:ns2="http://org.ecodex.backend/1_1/" xmlns:ns3="http://docs.oasis-open.org/ebxml-msg/ebms/v3.0/ns/core/200704/" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:ns5="http://www.w3.org/2003/05/soap-envelope">ACKNOWLEDGED</ns2:getStatusResponse>
+   </soap:Body>
+</soap:Envelope>
+
+8. cakame na odpoved z PL domibusu
+
