@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:_1="http://org.ecodex.backend/1_1/">
+   <soap:Header/>
+   <soap:Body>
+      <_1:retrieveMessageRequest>
+         <messageID>b16220c7-0c27-11ee-9180-0242ac130003@domibus.eu</messageID>
+      </_1:retrieveMessageRequest>
+   </soap:Body>
+</soap:Envelope>
