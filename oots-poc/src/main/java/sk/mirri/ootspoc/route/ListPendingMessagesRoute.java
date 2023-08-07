@@ -1,18 +1,17 @@
 package sk.mirri.ootspoc.route;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import sk.mirri.ootspoc.wsplugin.client.WSPluginServiceClient;
+import sk.mirri.ootspoc.backend.client.BackendClientService;
 
 @Component
 public class ListPendingMessagesRoute extends RouteBuilder {
 
 	@Autowired
-	private WSPluginServiceClient wsClient;
+	private BackendClientService client;
 
 	@Override
 	public void configure() throws Exception {
@@ -20,42 +19,28 @@ public class ListPendingMessagesRoute extends RouteBuilder {
 		// @formatter:off
 		from("timer://myTimer?period=5000")
 			.routeId("myRoute")
+			// TODO toto nacita aj spravy ktore su odpovede na ziadost o dokaz
 			.process(this::getPendingMessages)
 			.to("log:messagesList")
 			.split(body())
-//	    		.to("direct:getStatus")
-//	    		.to("direct:getErrors")
-				.to("direct:retreiveMessage")
-			.end();
+	            	.to("direct:retreiveMessage")
+	        .end();
 
-		from("direct:getStatus")
-			.routeId("getStatusRoute").process(new Processor() {
-				@Override
-				public void process(Exchange exchange) throws Exception {
-					String uid = exchange.getIn().getBody(String.class);
-					exchange.getIn().setBody(wsClient.getStatus(uid));
-				}
-			})
-		.to("log:status");
-		
-		// TODO vyfiltrovat len tie spravy co su bez chyb, nefunguje
-		from("direct:getErrors")
-			.routeId("getErrorsRoute")
-			.process(new Processor() {
-				@Override
-				public void process(Exchange exchange) throws Exception {
-					String uid = exchange.getIn().getBody(String.class);
-					exchange.getIn().setBody(wsClient.getMessageErrors(uid));
-				}
-			})
-		.to("log:errors");
+//		from("direct:getStatus")
+//			.routeId("getStatusRoute").process(new Processor() {
+//				@Override
+//				public void process(Exchange exchange) throws Exception {
+//					String uid = exchange.getIn().getBody(String.class);
+//					exchange.getIn().setBody(wsClient.getStatus(uid));
+//				}
+//			})
+//		.to("log:status");
 		// @formatter:on
 
 	}
 
 	public void getPendingMessages(Exchange exchange) {
-		// TODO nahradit clienta za cxf endpoint
-		exchange.getIn().setBody(wsClient.getPendingMessages().getMessageID());
+		exchange.getIn().setBody(client.getFilteredPendingMessages());
 	}
 
 }

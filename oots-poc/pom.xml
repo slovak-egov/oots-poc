@@ -56,7 +56,7 @@
 									<noPackageLevelAnnotations>true</noPackageLevelAnnotations>
 								</configuration>
 							</execution>
-<!--							<execution>-->
+							<!--							<execution>-->
 							<!--								<id>generate-sdg</id>-->
 							<!--								<goals>-->
 							<!--									<goal>xjc</goal>-->
@@ -94,51 +94,6 @@
 							<!--								</configuration>-->
 							<!--							</execution>-->
 						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.jvnet.jaxb2.maven2</groupId>
-						<artifactId>maven-jaxb2-plugin</artifactId>
-						<version>0.14.0</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>generate</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<schemaLanguage>WSDL</schemaLanguage>
-							<generateDirectory>generated/main/java</generateDirectory>
-							<generatePackage>wsplugin.domibus.eu</generatePackage>
-							<schemas>
-								<schema>
-									<url>
-										http://oots.mirri.tech:8080/domibus/services/wsplugin?wsdl</url>
-								</schema>
-							</schemas>
-						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>com.sun.xml.bind</groupId>
-								<artifactId>jaxb-core</artifactId>
-								<version>2.3.0.1</version>
-							</dependency>
-							<dependency>
-								<groupId>javax.xml.bind</groupId>
-								<artifactId>jaxb-api</artifactId>
-								<version>2.3.1</version>
-							</dependency>
-							<dependency>
-								<groupId>com.sun.xml.bind</groupId>
-								<artifactId>jaxb-impl</artifactId>
-								<version>2.3.1</version>
-							</dependency>
-							<dependency>
-								<groupId>org.javassist</groupId>
-								<artifactId>javassist</artifactId>
-								<version>3.25.0-GA</version>
-							</dependency>
-						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
@@ -188,6 +143,26 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.mapdb</groupId>
+			<artifactId>mapdb</artifactId>
+			<version>3.0.9</version>
+		</dependency>
+
+		<!-- Camel Schematron Validator -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-schematron</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<!-- Schematron Validator -->
+		<dependency>
+			<groupId>com.helger</groupId>
+			<artifactId>ph-schematron-validator</artifactId>
+			<version>5.6.5</version>
+		</dependency>
+
+		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
@@ -213,8 +188,36 @@
 		</dependency>
 		<dependency>
 			<groupId>eu.domibus</groupId>
+			<artifactId>domibus-logging</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.domibus</groupId>
 			<artifactId>domibus-default-ws-plugin-stubs</artifactId>
 			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.domibus</groupId>
+			<artifactId>domibus-plugin-api</artifactId>
+			<version>5.1</version>
+		</dependency>
+
+		<!-- JAXB API -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+
+		<!-- SLF4J API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<!-- Logback implementation for SLF4J -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -224,6 +227,11 @@
 			<url>
 				https://ec.europa.eu/digital-building-blocks/artifact/repository/eDelivery</url>
 		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
 	</repositories>
 
 
@@ -232,6 +240,24 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>generated/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
