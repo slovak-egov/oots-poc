@@ -31,7 +31,7 @@ import eu.domibus.plugin.webService.generated.RetrieveMessageResponse;
 import eu.domibus.plugin.webService.generated.SubmitMessageFault;
 import eu.domibus.plugin.webService.generated.SubmitRequest;
 import eu.domibus.plugin.webService.generated.SubmitResponse;
-import sk.mirri.ootspoc.data.EvidenceRequestMessage;
+import sk.mirri.ootspoc.data.EvidenceMessage;
 import sk.mirri.ootspoc.data.EvidenceRequestPayload;
 import sk.mirri.ootspoc.mapdb.MessageIdDatabase;
 
@@ -80,7 +80,7 @@ public class BackendClientService {
 		return false;
 	}
 
-	public EvidenceRequestMessage retrieveMessage(final String aMessageId) {
+	public EvidenceMessage retrieveMessage(final String aMessageId) {
 		RetrieveMessageRequest request = new RetrieveMessageRequest();
 		request.setMessageID(aMessageId);
 		Holder<RetrieveMessageResponse> response = new Holder<RetrieveMessageResponse>(new RetrieveMessageResponse());
@@ -90,7 +90,7 @@ public class BackendClientService {
 		} catch (RetrieveMessageFault e) {
 			LOGGER.error("An exception occurred while retrieving message {}: {}", aMessageId, e);
 		}
-		return new EvidenceRequestMessage(response, messaging);
+		return new EvidenceMessage(response, messaging);
 	}
 
 	public void sendResponseFor(EvidenceRequestPayload aRequestPayload,

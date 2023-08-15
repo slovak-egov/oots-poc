@@ -23,7 +23,7 @@ public class ListPendingMessagesRoute extends RouteBuilder {
 			.process(this::getPendingMessages)
 			.to("log:messagesList")
 			.split(body())
-	            	.to("direct:retreiveMessage")
+	            	.to("direct:retrieveMessage")
 	        .end();
 
 //		from("direct:getStatus")
