@@ -3,6 +3,7 @@ package sk.mirri.ootspoc.route.evidence.type;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,9 +24,11 @@ import eu.domibus.common.model.org.oasis_open.docs.ebxml_msg.ebms.v3_0.ns.core._
 import eu.domibus.plugin.webService.generated.LargePayloadType;
 import sk.mirri.ootspoc.backend.client.BackendClientService;
 import sk.mirri.ootspoc.data.EvidenceRequestPayload;
+import sk.mirri.ootspoc.wsplugin.regrep4.QueryRequest;
+import sk.mirri.ootspoc.wsplugin.regrep4.QueryResponse;
 
 @Component
-public class DiplomaEvidenceTypeRoute extends RouteBuilder {
+public class BirthCertificateEvidenceTypeRoute extends RouteBuilder {
 
 	@Autowired
 	private BackendClientService client;
@@ -33,28 +36,34 @@ public class DiplomaEvidenceTypeRoute extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 
-		// toto posle dummy odpoved na poziadavku na dokaz o studiu
+		// toto posle prazdnu odpoved na poziadavku na rodny list
 
 		// @formatter:off
-		from("direct://https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962")
+		from("direct://https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/DE/ca8afed6-2dc0-422a-a931-d21c3d8d370e")
 		.to("log:payloadToProcess")
-		.process(this::sendEvidenceResponse);
+		.process(this::sendEmptyEvidenceResponse);
 		// @formatter:on
 
 	}
 
-	private void sendEvidenceResponse(final Exchange anExchange) {
+	private void sendEmptyEvidenceResponse(final Exchange anExchange) {
 		EvidenceRequestPayload payload = anExchange.getIn().getBody(EvidenceRequestPayload.class);
-		Pair<PartInfo, LargePayloadType> thePdfPayload = preparePayload("src/main/resources/evidence/evidence.pdf",
-				"application/pdf", "cid:evidencepdf@oots.eu");
-		Pair<PartInfo, LargePayloadType> theXmlPayload = preparePayload("src/main/resources/evidence/response.xml",
-				"application/x-ebrs+xml", "cid:regrep@oots.eu");
+		Pair<PartInfo, LargePayloadType> theXmlPayload = preparePayload(
+				"src\\main\\resources\\evidence\\responseEmpty.xml", "application/x-ebrs+xml", "cid:regrep@oots.eu");
+
+		// TODO extract query request and build query response
+		QueryResponse response = prepareEmptyResponse(payload.extractQueryRequest());
 
 		final List<Pair<PartInfo, LargePayloadType>> responsePayloads = new ArrayList<>();
 		responsePayloads.add(theXmlPayload);
-		responsePayloads.add(thePdfPayload);
 
 		client.sendResponseFor(payload, responsePayloads);
+	}
+
+	private QueryResponse prepareEmptyResponse(QueryRequest aQueryRequest) {
+		QueryResponse response = new QueryResponse();
+		response.setTotalResultCount(BigInteger.ZERO);
+		return response;
 	}
 
 	private Pair<PartInfo, LargePayloadType> preparePayload(String filePath, String contentType, String aPayloadId) {

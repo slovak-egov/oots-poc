@@ -27,7 +27,7 @@ public class RetrieveMessageRoute extends RouteBuilder {
 			//odtial to uz musi byt perzistovane lebo po vycitani spravy sprava zmizne z domibusu
 			.process(this::retrieveMessage)
 			.choice()
-		        .when(simple("${body.isEvidenceRequest}"))// TODO vyhodnotit ci som precital request alebo response
+		        .when(simple("${body.isEvidenceRequest}"))
 		            .to("direct:queryRequestMessage")
 		        .otherwise()
 		            .to("direct:queryResponseMessage");
