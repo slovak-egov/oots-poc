@@ -17,8 +17,9 @@ public class ListPendingMessagesRoute extends RouteBuilder {
 	public void configure() throws Exception {
 
 		// @formatter:off
-		from("timer://myTimer?period=10000")
-			.routeId("myRoute")
+//		from("timer://myTimer?period=10000")
+		from("direct:listPendingMessages")
+			.routeId("listPendingMessagesRoute")
 			.process(this::getPendingMessages)
 			.to("log:messagesList")
 			.split(body())
