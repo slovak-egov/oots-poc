@@ -1,0 +1,102 @@
+<query:QueryRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:sdg="http://data.europa.eu/p4s" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="EN" id="urn:uuid:16c722a1-7017-48bf-98a8-955f5ba8db21">
+  <rim:Slot name="SpecificationIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>oots-edm:v1.0</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="IssueDateTime">
+    <rim:SlotValue xsi:type="rim:DateTimeValueType">
+      <rim:Value>2023-10-20T09:29:16+01:00</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="Procedure">
+    <rim:SlotValue xsi:type="rim:InternationalStringValueType">
+      <rim:Value>
+        <rim:LocalizedString xml:lang="EN" value="T1" />
+      </rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="PossibilityForPreview">
+    <rim:SlotValue xsi:type="rim:BooleanValueType">
+      <rim:Value>false</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="ExplicitRequestGiven">
+    <rim:SlotValue xsi:type="rim:BooleanValueType">
+      <rim:Value>true</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="Requirements">
+    <rim:SlotValue xsi:type="rim:CollectionValueType" collectionType="urn:oasis:names:tc:ebxml-regrep:CollectionType:Set">
+      <rim:Element xsi:type="rim:AnyValueType">
+        <Requirement xmlns="http://data.europa.eu/p4s">
+          <Identifier>https://sr.oots.tech.ec.europa.eu/requirements/9196feb5-a88f-488d-8aad-7842cf64d1ac</Identifier>
+          <Name lang="EN">Proof of secondary education diploma/certificate</Name>
+        </Requirement>
+      </rim:Element>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceRequester">
+    <rim:SlotValue xsi:type="rim:CollectionValueType">
+      <rim:Element xsi:type="rim:AnyValueType">
+        <Agent xmlns="http://data.europa.eu/p4s">
+          <Identifier schemeID="urn:cef.eu:names:identifier:EAS:0190">CZ222332239</Identifier>
+          <Name lang="EN">University of Prague</Name>
+          <Address>
+            <FullAddress>Karlova 9, Praha 10000</FullAddress>
+            <LocatorDesignator>9</LocatorDesignator>
+            <PostCode>10000</PostCode>
+            <PostCityName>Prague</PostCityName>
+            <AdminUnitLevel1>CZ</AdminUnitLevel1>
+            <AdminUnitLevel2>CZ329</AdminUnitLevel2>
+          </Address>
+          <Classification>ER</Classification>
+        </Agent>
+      </rim:Element>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceProvider">
+    <rim:SlotValue xsi:type="rim:AnyValueType">
+      <Agent xmlns="http://data.europa.eu/p4s">
+        <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_SK_01</Identifier>
+        <Name lang="EN">SK Ministry of the Projectathon</Name>
+      </Agent>
+    </rim:SlotValue>
+  </rim:Slot>
+  <query:ResponseOption returnType="LeafClassWithRepositoryItem" />
+  <query:Query queryDefinition="DocumentQuery">
+    <rim:Slot name="NaturalPerson">
+      <rim:SlotValue xsi:type="rim:AnyValueType">
+        <Person xmlns="http://data.europa.eu/p4s">
+          <LevelOfAssurance>High</LevelOfAssurance>
+          <Identifier schemeID="eidas">DE/DE/12345690</Identifier>
+          <FamilyName>Smith</FamilyName>
+          <GivenName>Jim</GivenName>
+          <DateOfBirth>1999-03-01</DateOfBirth>
+          <PlaceOfBirth>Praha</PlaceOfBirth>
+          <CurrentAddress>
+            <FullAddress>tady to teoreticky složit</FullAddress>
+            <LocatorDesignator>81</LocatorDesignator>
+            <PostCode>10000</PostCode>
+            <PostCityName>Prague</PostCityName>
+            <Thoroughfare>Nevím</Thoroughfare>
+            <AdminUnitLevel1>CZ</AdminUnitLevel1>
+            <AdminUnitLevel2>CZ2</AdminUnitLevel2>
+          </CurrentAddress>
+        </Person>
+      </rim:SlotValue>
+    </rim:Slot>
+    <rim:Slot name="EvidenceRequest">
+      <rim:SlotValue xsi:type="rim:AnyValueType">
+        <DataServiceEvidenceType xmlns="http://data.europa.eu/p4s">
+          <Identifier>ea16fa0d-3cee-48e2-8557-c81dc52696fc</Identifier>
+          <EvidenceTypeClassification>https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/c10047cd-f02b-4cf2-b337-de2a0d24ce4f</EvidenceTypeClassification>
+          <Title lang="EN">EU-Wide Secondary School Education completion</Title>
+          <DistributedAs>
+            <Format>application/pdf</Format>
+          </DistributedAs>
+        </DataServiceEvidenceType>
+      </rim:SlotValue>
+    </rim:Slot>
+  </query:Query>
+</query:QueryRequest>
