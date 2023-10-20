@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "f088655d-50e2-42d6-be34-51b1ce0ecd2f",
+		"name": "OOTS October Projectathon Common Service Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5200328"
+	},
+	"item": [
+		{
+			"name": "01 - Baseline - T2 - for most TCs",
+			"item": [
+				{
+					"name": "EB1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id=T2&country-code=SK",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction"
+								},
+								{
+									"key": "procedure-id",
+									"value": "T2"
+								},
+								{
+									"key": "country-code",
+									"value": "SK"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EB2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code=CZ&requirement-id=https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "CZ"
+								},
+								{
+									"key": "requirement-id",
+									"value": "https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=CZ&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"dsd",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "CZ"
+								},
+								{
+									"key": "evidence-type-classification",
+									"value": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02 - Baseline - T1 - for TC07",
+			"item": [
+				{
+					"name": "EB1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id=T1&country-code=AT",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction"
+								},
+								{
+									"key": "procedure-id",
+									"value": "T1"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EB2 - Tertiary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code=AT&requirement-id=https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								},
+								{
+									"key": "requirement-id",
+									"value": "https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EB2 - Secondary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code=AT&requirement-id=https://sr.oots.tech.ec.europa.eu/requirements/9196feb5-a88f-488d-8aad-7842cf64d1ac",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								},
+								{
+									"key": "requirement-id",
+									"value": "https://sr.oots.tech.ec.europa.eu/requirements/9196feb5-a88f-488d-8aad-7842cf64d1ac"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSD - Tertiary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=AT&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"dsd",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								},
+								{
+									"key": "evidence-type-classification",
+									"value": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSD - Secondary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=AT&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/c10047cd-f02b-4cf2-b337-de2a0d24ce4f",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"dsd",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								},
+								{
+									"key": "evidence-type-classification",
+									"value": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/c10047cd-f02b-4cf2-b337-de2a0d24ce4f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03 - DSD Dialogue - V1 - for TC05",
+			"item": [
+				{
+					"name": "EB1 Dialogue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id=V1&country-code=SK",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction"
+								},
+								{
+									"key": "procedure-id",
+									"value": "V1"
+								},
+								{
+									"key": "country-code",
+									"value": "SK"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EB2 Dialogue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code=BE&requirement-id=https://sr.oots.tech.ec.europa.eu/requirements/1e0372b7-8343-4560-8f84-adb5eec410d6",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "BE",
+									"description": "CZ AT DE BE"
+								},
+								{
+									"key": "requirement-id",
+									"value": "https://sr.oots.tech.ec.europa.eu/requirements/1e0372b7-8343-4560-8f84-adb5eec410d6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSD Dialogue Step 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=BE&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/d080dc98-46ae-4a00-a5f7-b54da000457a",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"dsd",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "BE",
+									"description": "CZ AT DE BE"
+								},
+								{
+									"key": "evidence-type-classification",
+									"value": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/d080dc98-46ae-4a00-a5f7-b54da000457a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSD Dialogue Step 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=BE&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/d080dc98-46ae-4a00-a5f7-b54da000457a&jurisdiction-admin-l2=BE1&evidence-type-id=fa1fdb16-f383-45cb-9e8c-60efad4b253a&jurisdiction-context-id=fab7e562-1c73-44e5-bcae-12f459822dd7",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"dsd",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "BE",
+									"description": "CZ AT DE BE"
+								},
+								{
+									"key": "evidence-type-classification",
+									"value": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/d080dc98-46ae-4a00-a5f7-b54da000457a"
+								},
+								{
+									"key": "jurisdiction-admin-l2",
+									"value": "BE1",
+									"description": "CZ0 AT1 DE1 BE1"
+								},
+								{
+									"key": "evidence-type-id",
+									"value": "fa1fdb16-f383-45cb-9e8c-60efad4b253a"
+								},
+								{
+									"key": "jurisdiction-context-id",
+									"value": "fab7e562-1c73-44e5-bcae-12f459822dd7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04 - XML Evidence - T3 for TC10",
+			"item": [
+				{
+					"name": "EB1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id=T3&country-code=AT",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction"
+								},
+								{
+									"key": "procedure-id",
+									"value": "T3"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EB2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code=AT&requirement-id=https://sr.oots.tech.ec.europa.eu/requirements/557d88c9-0dd9-4475-9769-d39c499d9416",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"eb",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								},
+								{
+									"key": "requirement-id",
+									"value": "https://sr.oots.tech.ec.europa.eu/requirements/557d88c9-0dd9-4475-9769-d39c499d9416"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DSD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=AT&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/42d48a82-0bd7-4c59-af18-b0d21dc21e7f",
+							"protocol": "https",
+							"host": [
+								"projectathon",
+								"oots-common-services",
+								"eu"
+							],
+							"path": [
+								"query",
+								"dsd",
+								"rest",
+								"search"
+							],
+							"query": [
+								{
+									"key": "queryId",
+									"value": "urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction"
+								},
+								{
+									"key": "country-code",
+									"value": "AT"
+								},
+								{
+									"key": "evidence-type-classification",
+									"value": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/42d48a82-0bd7-4c59-af18-b0d21dc21e7f"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
