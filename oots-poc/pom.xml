@@ -56,43 +56,39 @@
 									<noPackageLevelAnnotations>true</noPackageLevelAnnotations>
 								</configuration>
 							</execution>
-							<!--							<execution>-->
-							<!--								<id>generate-sdg</id>-->
-							<!--								<goals>-->
-							<!--									<goal>xjc</goal>-->
-							<!--								</goals>-->
-							<!--								<configuration>-->
-							<!--									<sources>-->
-							<!--										<source>src/main/resources/xsd/sdg</source>-->
-							<!--									</sources>-->
+<!--							<execution>-->
+<!--								<id>generate-sdg</id>-->
+<!--								<goals>-->
+<!--									<goal>xjc</goal>-->
+<!--								</goals>-->
+<!--								<configuration>-->
+<!--									<sources>-->
+<!--										<source>src/main/resources/xsd/sdg</source>-->
+<!--									</sources>-->
+<!--									<outputDirectory>generated/main/java</outputDirectory>-->
+<!--									<packageName>-->
+<!--										sk.mirri.ootspoc.wsplugin.sdg</packageName>-->
 
-							<!--
-							<outputDirectory>generated/main/java</outputDirectory>-->
-							<!--									<packageName>-->
-							<!--										sk.mirri.ootspoc.wsplugin.sdg</packageName>-->
-							<!--
-							<noPackageLevelAnnotations>true</noPackageLevelAnnotations>-->
-							<!--								</configuration>-->
-							<!--							</execution>-->
-							<!--							<execution>-->
-							<!--								<id>generate-xml</id>-->
-							<!--								<goals>-->
-							<!--									<goal>xjc</goal>-->
-							<!--								</goals>-->
-							<!--								<configuration>-->
-							<!--									<sources>-->
-							<!--										<source>src/main/resources/xsd/xml</source>-->
-							<!--									</sources>-->
+<!--									<noPackageLevelAnnotations>true</noPackageLevelAnnotations>-->
+<!--								</configuration>-->
+<!--							</execution>-->
+<!--							<execution>-->
+<!--								<id>generate-xml</id>-->
+<!--								<goals>-->
+<!--									<goal>xjc</goal>-->
+<!--								</goals>-->
+<!--								<configuration>-->
+<!--									<sources>-->
+<!--										<source>src/main/resources/xsd/xml</source>-->
+<!--									</sources>-->
+<!--									<outputDirectory>generated/main/java</outputDirectory>-->
+<!--									<packageName>-->
+<!--										sk.mirri.ootspoc.wsplugin.xml</packageName>-->
 
-							<!--
-							<outputDirectory>generated/main/java</outputDirectory>-->
-							<!--									<packageName>-->
-							<!--										sk.mirri.ootspoc.wsplugin.xml</packageName>-->
 
-							<!--
-							<noPackageLevelAnnotations>true</noPackageLevelAnnotations>-->
-							<!--								</configuration>-->
-							<!--							</execution>-->
+<!--									<noPackageLevelAnnotations>true</noPackageLevelAnnotations>-->
+<!--								</configuration>-->
+<!--							</execution>-->
 						</executions>
 					</plugin>
 				</plugins>
@@ -259,6 +255,15 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <configuration>
+	                <includes>
+	                    <include>**/</include>
+	                </includes>
+	            </configuration>
+	        </plugin>
 		</plugins>
 	</build>
 

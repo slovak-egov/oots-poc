@@ -21,8 +21,7 @@ public class BackendClientServiceConfiguration {
 
 	@Bean
 	public MessageIdDatabase mapDBComponent() throws MalformedURLException {
-		// TODO nahradit za config hodnotu
-		return new MessageIdDatabase("src/main/resources/db/messages.db");
+		return new MessageIdDatabase(databasePath);
 	}
 
 	@Bean

@@ -17,13 +17,12 @@ public class ListPendingMessagesRoute extends RouteBuilder {
 	public void configure() throws Exception {
 
 		// @formatter:off
-		from("timer://myTimer?period=5000")
+		from("timer://myTimer?period=10000")
 			.routeId("myRoute")
-			// TODO toto nacita aj spravy ktore su odpovede na ziadost o dokaz
 			.process(this::getPendingMessages)
 			.to("log:messagesList")
 			.split(body())
-	            	.to("direct:retreiveMessage")
+	            	.to("direct:retrieveMessage")
 	        .end();
 
 //		from("direct:getStatus")

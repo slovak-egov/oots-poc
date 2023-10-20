@@ -11,7 +11,7 @@
 			<xs:element ref="sdg:Identifier"/>
 			<!-- minOccurs="1" maxOccurs="1" -->
 			<xs:element ref="sdg:Name" minOccurs="1" maxOccurs="unbounded"/>
-			<!-- minOccurs="1" maxOccurs="1"  -->
+			<!-- minOccurs="1" maxOccurs="unbounded"  -->
 			<xs:element name="Address" type="sdg:AddressType" minOccurs="0"/>
 			<!-- maxOccurs="1"  -->
 			<xs:element name="Jurisdiction" type="sdg:JurisdictionType" minOccurs="0"/>
@@ -30,7 +30,7 @@
 			<xs:element ref="sdg:Description" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="RelatedTo" type="sdg:ReferenceFrameworkType" minOccurs="0" maxOccurs="unbounded"/>
 			<!-- maxOccurs="unbounded" -->
-			<xs:element ref="sdg:Jurisdiction" minOccurs="0"/>
+			<xs:element ref="sdg:Jurisdiction" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -105,12 +105,12 @@
 		<xs:sequence>
 			<xs:element ref="sdg:Identifier"/>
 			<!-- minOccurs="1" maxOccurs="1" -->
-
-			<!--  Authority OOTS: Current version oots-edm:v1.0 -->
+			<xs:element ref="sdg:Name" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- Included on 2023 q3 release <xs:element ref="sdg:Name" minOccurs="0" maxOccurs="unbounded"/> -->
 			<xs:element ref="sdg:ConformsTo"/>
 			<!-- minOccurs="1" maxOccurs="unbounded" -->
-			<xs:element name="Publisher" type="sdg:EvidenceProviderType"/>
-			<!-- minOccurs="1" maxOccurs="1" -->
+			<xs:element name="Publisher" type="sdg:EvidenceProviderType" minOccurs="0"/>
+			<!-- Cardinality change in 2023 q3 release from minOccurs="1" maxOccurs="1" to minOccurs="0" due to LCM refactored-->
 		</xs:sequence>
 	</xs:complexType>
 
@@ -137,6 +137,9 @@
 			<!-- Codelist eIDAS Levels Of Assurance -->
 			<xs:element name="AuthenticationLevelOfAssurance" type="sdg:CodeType" minOccurs="0"/>
 			<!-- maxOccurs="1" -->
+
+			<xs:element ref="sdg:Note" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- minOccurs="0" maxOccurs="unbounded" -->
 
 			<!-- Evidence Provider Discovery Filters -->
 			<xs:element ref="sdg:EvidenceProviderJurisdictionDetermination" minOccurs="0"/>
@@ -178,6 +181,7 @@
 			<xs:element ref="sdg:Identifier"/>
 			<!-- minOccurs="1" maxOccurs="1" -->
 			<xs:element ref="sdg:Name" minOccurs="1" maxOccurs="unbounded"/>
+			<!-- minOccurs="1" maxOccurs="unbounded" -->
 			<xs:element name="Address" type="sdg:AddressType"/>
 			<!-- minOccurs="1" maxOccurs="1" -->
 			<xs:element name="Jurisdiction" type="sdg:JurisdictionType"/>
@@ -376,6 +380,7 @@
 	<xs:element name="Description" type="sdg:MultilingualStringType"/>
 	<xs:element name="Title" type="sdg:MultilingualStringType"/>
 	<xs:element name="Name" type="sdg:MultilingualStringType"/>
+	<xs:element name="Note" type="sdg:MultilingualStringType"/>
 
 	<xs:element name="Jurisdiction" type="sdg:JurisdictionType"/>
 
@@ -400,6 +405,8 @@
 
 	<!-- LCM required elements -->
 	<xs:element name="AccessService" type="sdg:DataServiceType"/>
+	<xs:element name="Publisher" type="sdg:EvidenceProviderType"/>
+	<!-- Element Publisher added in 2023 q3 due to LCM refactored -->
 	
 	<xs:element name="EvidenceTypeList" type="sdg:EvidenceTypeListType"/>
 	
