@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:oots="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:33c82bf5-a9f7-41fa-83fb-a5cfb35e0126">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <oots:Requirement>
+                        <oots:Identifier>https://sr.oots.tech.ec.europa.eu/requirements/1e0372b7-8343-4560-8f84-adb5eec410d6</oots:Identifier>
+                        <oots:Name lang="EN">Proof of Residence</oots:Name>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>32b45495-7a1f-4d31-9a32-5b08d4487a4c</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>SK</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                    </oots:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>

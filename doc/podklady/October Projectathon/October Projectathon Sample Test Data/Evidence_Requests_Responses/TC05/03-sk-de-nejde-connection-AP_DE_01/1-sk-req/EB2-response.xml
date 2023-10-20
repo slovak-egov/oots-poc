@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:oots="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:84de1a09-edce-4cee-a7af-ab7031fade51">
+            <rim:Slot name="Requirement">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <oots:Requirement>
+                        <oots:Identifier>https://sr.oots.tech.ec.europa.eu/requirements/1e0372b7-8343-4560-8f84-adb5eec410d6</oots:Identifier>
+                        <oots:Name lang="EN">Proof of Residence</oots:Name>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>cd5d4685-c80f-4d81-8510-257cd1f8b1c5</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>SE</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>7a9cb7b2-39eb-4835-983a-9cdac5ce71b6</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>DE</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>6872198e-5ae9-4d64-8b4b-a9f4a02aab27</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>EL</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>27088f8a-3773-4fe7-b931-68ab8b4be5e3</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>CY</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>b9c198ad-51cc-4717-9b7e-bf1163ff51e8</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>SI</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>ce56faff-bf1c-4a07-9d8d-88088dd9a6ec</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>IT</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>4d73888b-b90a-4254-be2d-8850cb58f028</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>LV</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>ca17f0a7-6fce-423c-afb5-07d6252b0953</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>LU</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>4b51f814-672c-4678-9849-2c5aaea2cf06</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>ES</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>3b0af577-d490-4679-afc4-855d121e9785</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>AT</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>2b530984-cec2-4bbb-916c-20ddf498509e</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>FI</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>7dc5d2b2-7dcf-4bd7-b257-acc2747fea82</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>NL</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>d1fd426e-fc9d-4c46-9452-1d1a9d533294</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>PT</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>de90f739-6511-46a2-b2ac-34349f40944d</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>EE</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>a27d6337-e0eb-451c-bdd7-1bac1de731c0</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>IE</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>31ef7ef9-590f-4abf-8ef3-4776e2adf42e</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>RO</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>fd27d883-a8d7-4695-a9ed-67407d61200d</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>HU</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>5a7e78b0-d329-46f6-9190-b5c740b4e716</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>LT</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>23bc0841-2fd3-497a-bb10-96570b541130</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>BE</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>f679efa4-86cf-4baf-a178-a8d036bba4ff</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>EC</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>bd53d60e-203b-41df-8b6c-c434dd060dab</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>CZ</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>970f0d72-06f7-42d6-9264-4f0f5d720494</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>HR</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>8e4efb1f-9d75-4eb7-a4d0-3d092f137e7c</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>MT</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>ff212dd7-bfc6-4f87-a10f-ba85aac387c2</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>FR</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>403fd1e6-770d-414a-b3f6-4f38ee9de7a4</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>PL</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>32b45495-7a1f-4d31-9a32-5b08d4487a4c</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>SK</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:ReferenceFramework>
+                            <oots:Identifier>be60c84f-24cd-4231-8ee8-b07dcb5b874f</oots:Identifier>
+                            <oots:Title lang="EN">Registering a change of address</oots:Title>
+                            <oots:RelatedTo>
+<oots:Identifier>V1</oots:Identifier>
+                            </oots:RelatedTo>
+                            <oots:Jurisdiction>
+<oots:AdminUnitLevel1>EL</oots:AdminUnitLevel1>
+                            </oots:Jurisdiction>
+                        </oots:ReferenceFramework>
+                        <oots:EvidenceTypeList>
+                            <oots:Identifier>367533f8-b28c-4018-9c63-fb408bc06384</oots:Identifier>
+                            <oots:EvidenceType>
+<oots:EvidenceTypeClassification>https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/d080dc98-46ae-4a00-a5f7-b54da000457a</oots:EvidenceTypeClassification>
+<oots:Title lang="EN">EU-Wide Proof of Residence Certificate</oots:Title>
+<oots:Jurisdiction>
+    <oots:AdminUnitLevel1>DE</oots:AdminUnitLevel1>
+</oots:Jurisdiction>
+                            </oots:EvidenceType>
+                        </oots:EvidenceTypeList>
+                    </oots:Requirement>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>
