@@ -3,6 +3,7 @@ package sk.mirri.ootspoc.route.evidence.type;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,6 @@ import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.sun.istack.ByteArrayDataSource;
 
@@ -23,27 +23,15 @@ import eu.domibus.common.model.org.oasis_open.docs.ebxml_msg.ebms.v3_0.ns.core._
 import eu.domibus.plugin.webService.generated.LargePayloadType;
 import sk.mirri.ootspoc.backend.client.BackendClientService;
 import sk.mirri.ootspoc.data.EvidenceRequestPayload;
+import sk.mirri.ootspoc.wsplugin.regrep4.QueryRequest;
+import sk.mirri.ootspoc.wsplugin.regrep4.QueryResponse;
 
-@Component
-public class DiplomaEvidenceTypeRoute extends RouteBuilder {
+public abstract class AbstractEvidenceTypeRoute extends RouteBuilder {
 
 	@Autowired
 	private BackendClientService client;
 
-	@Override
-	public void configure() throws Exception {
-
-		// toto posle dummy odpoved na poziadavku na dokaz o studiu
-
-		// @formatter:off
-		from("direct://https://sr.oots.tech.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962")
-		.to("log:payloadToProcess")
-		.process(this::sendEvidenceResponse);
-		// @formatter:on
-
-	}
-
-	private void sendEvidenceResponse(final Exchange anExchange) {
+	protected void sendEvidenceResponse(final Exchange anExchange) {
 		EvidenceRequestPayload payload = anExchange.getIn().getBody(EvidenceRequestPayload.class);
 		Pair<PartInfo, LargePayloadType> thePdfPayload = preparePayload("src/main/resources/evidence/evidence.pdf",
 				"application/pdf", "cid:evidencepdf@oots.eu");
@@ -57,7 +45,27 @@ public class DiplomaEvidenceTypeRoute extends RouteBuilder {
 		client.sendResponseFor(payload, responsePayloads);
 	}
 
-	private Pair<PartInfo, LargePayloadType> preparePayload(String filePath, String contentType, String aPayloadId) {
+	protected void sendEmptyEvidenceResponse(final Exchange anExchange) {
+		EvidenceRequestPayload payload = anExchange.getIn().getBody(EvidenceRequestPayload.class);
+		Pair<PartInfo, LargePayloadType> theXmlPayload = preparePayload(
+				"src\\main\\resources\\evidence\\responseEmpty.xml", "application/x-ebrs+xml", "cid:regrep@oots.eu");
+
+		// TODO extract query request and build query response
+		QueryResponse response = prepareEmptyResponse(payload.extractQueryRequest());
+
+		final List<Pair<PartInfo, LargePayloadType>> responsePayloads = new ArrayList<>();
+		responsePayloads.add(theXmlPayload);
+
+		client.sendResponseFor(payload, responsePayloads);
+	}
+
+	protected QueryResponse prepareEmptyResponse(QueryRequest aQueryRequest) {
+		QueryResponse response = new QueryResponse();
+		response.setTotalResultCount(BigInteger.ZERO);
+		return response;
+	}
+
+	protected Pair<PartInfo, LargePayloadType> preparePayload(String filePath, String contentType, String aPayloadId) {
 		LargePayloadType thePayload = new LargePayloadType();
 		thePayload.setContentType(contentType);
 

@@ -5,6 +5,7 @@ import org.apache.camel.ProducerTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,9 +15,9 @@ public class MessageController {
 	private CamelContext camelContext;
 
 	@RequestMapping("/retrieve/{messageId}")
-	public String retrieveMessage(@PathVariable String messageId) {
+	public String retrieveMessage(@PathVariable String messageId, @RequestParam("testCase") String testCase) {
 		ProducerTemplate producerTemplate = camelContext.createProducerTemplate();
-		producerTemplate.sendBody("direct:retrieveMessage", messageId);
+		producerTemplate.sendBodyAndHeader("direct:retrieveMessage", messageId, "testCase", testCase);
 		return "Message " + messageId + " will be processed.";
 	}
 
