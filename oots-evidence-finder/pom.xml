@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.1</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>sk.mirri</groupId>
+	<artifactId>oots-evidence-finder</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>OOTS POC</name>
+	<description>Once only technical system evidence finder POC</description>
+	<properties>
+		<java.version>17</java.version>
+		<camel.version>3.20.5</camel.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>domibus-schemas</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>jaxb2-maven-plugin</artifactId>
+						<version>2.5.0</version>
+						<executions>
+							<execution>
+								<id>generate-regrep4</id>
+								<goals>
+									<goal>xjc</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>src/main/resources/xsd/regrep4</source>
+									</sources>
+									<xjbSources>
+										<xjbSource>
+											src/main/resources/xsd/regrep4/bindings.xml</xjbSource>
+									</xjbSources>
+									<xjcSourceExcludeFilters>
+										<filter
+											implementation="org.codehaus.mojo.jaxb2.shared.filters.pattern.PatternFileFilter">
+											<patterns>
+												<pattern>\.xml</pattern>
+											</patterns>
+										</filter>
+									</xjcSourceExcludeFilters>
+									<outputDirectory>generated/main/java</outputDirectory>
+									<packageName>
+										sk.mirri.ootspoc.wsplugin.regrep4</packageName>
+									<noPackageLevelAnnotations>true</noPackageLevelAnnotations>
+								</configuration>
+							</execution>
+							<!--							<execution>-->
+							<!--								<id>generate-sdg</id>-->
+							<!--								<goals>-->
+							<!--									<goal>xjc</goal>-->
+							<!--								</goals>-->
+							<!--								<configuration>-->
+							<!--									<sources>-->
+							<!--										<source>src/main/resources/xsd/sdg</source>-->
+							<!--									</sources>-->
+							<!--
+							<outputDirectory>generated/main/java</outputDirectory>-->
+							<!--									<packageName>-->
+							<!--										sk.mirri.ootspoc.wsplugin.sdg</packageName>-->
+
+							<!--
+							<noPackageLevelAnnotations>true</noPackageLevelAnnotations>-->
+							<!--								</configuration>-->
+							<!--							</execution>-->
+							<!--							<execution>-->
+							<!--								<id>generate-xml</id>-->
+							<!--								<goals>-->
+							<!--									<goal>xjc</goal>-->
+							<!--								</goals>-->
+							<!--								<configuration>-->
+							<!--									<sources>-->
+							<!--										<source>src/main/resources/xsd/xml</source>-->
+							<!--									</sources>-->
+							<!--
+							<outputDirectory>generated/main/java</outputDirectory>-->
+							<!--									<packageName>-->
+							<!--										sk.mirri.ootspoc.wsplugin.xml</packageName>-->
+
+
+							<!--
+							<noPackageLevelAnnotations>true</noPackageLevelAnnotations>-->
+							<!--								</configuration>-->
+							<!--							</execution>-->
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jaxb</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+
+		<!-- Camel Schematron Validator -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-schematron</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<!-- Schematron Validator -->
+		<dependency>
+			<groupId>com.helger</groupId>
+			<artifactId>ph-schematron-validator</artifactId>
+			<version>5.6.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.domibus</groupId>
+			<artifactId>domibus-ws-stubs</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.domibus</groupId>
+			<artifactId>domibus-logging</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.domibus</groupId>
+			<artifactId>domibus-default-ws-plugin-stubs</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.domibus</groupId>
+			<artifactId>domibus-plugin-api</artifactId>
+			<version>5.1</version>
+		</dependency>
+
+		<!-- JAXB API -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+
+		<!-- SLF4J API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<!-- Logback implementation for SLF4J -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-bean-validators</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>eu-repo</id>
+			<url>
+				https://ec.europa.eu/digital-building-blocks/artifact/repository/eDelivery</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>generated/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
