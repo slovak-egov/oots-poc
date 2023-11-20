@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<query:QueryResponse xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:oots="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0" xmlns:ns7="http://www.w3.org/1999/xhtml" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:ws-addr="http://www.w3.org/2005/08/addressing" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success">
+    <rim:RegistryObjectList>
+        <rim:RegistryObject id="urn:uuid:4cf3c51c-86bf-4508-90fa-ab80661cb358">
+            <rim:Slot name="DataServiceEvidenceType">
+                <rim:SlotValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="rim:AnyValueType">
+                    <oots:DataServiceEvidenceType>
+                        <oots:Identifier>a8851d44-8f62-4561-99d2-5383ce3f30a7</oots:Identifier>
+                        <oots:EvidenceTypeClassification>https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</oots:EvidenceTypeClassification>
+                        <oots:Title lang="EN">EU-Wide Diploma/Bachelor's Degree</oots:Title>
+                        <oots:DistributedAs>
+                            <oots:Format>application/pdf</oots:Format>
+                        </oots:DistributedAs>
+                        <oots:AccessService>
+                            <oots:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-simulator">cz_test_ap</oots:Identifier>
+                            <oots:ConformsTo>oots-edm:v1.0</oots:ConformsTo>
+                            <oots:Publisher>
+<oots:Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_CZ_01</oots:Identifier>
+<oots:Name lang="EN">CZ Ministry of the Projectathon</oots:Name>
+<oots:Address>
+    <oots:AdminUnitLevel1>CZ</oots:AdminUnitLevel1>
+</oots:Address>
+<oots:Jurisdiction>
+    <oots:AdminUnitLevel1>CZ</oots:AdminUnitLevel1>
+</oots:Jurisdiction>
+                            </oots:Publisher>
+                        </oots:AccessService>
+                        <oots:AuthenticationLevelOfAssurance>Low</oots:AuthenticationLevelOfAssurance>
+                    </oots:DataServiceEvidenceType>
+                </rim:SlotValue>
+            </rim:Slot>
+        </rim:RegistryObject>
+    </rim:RegistryObjectList>
+</query:QueryResponse>

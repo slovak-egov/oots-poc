@@ -1,0 +1,1 @@
+https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code=DE&evidence-type-classification=https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/d080dc98-46ae-4a00-a5f7-b54da000457a

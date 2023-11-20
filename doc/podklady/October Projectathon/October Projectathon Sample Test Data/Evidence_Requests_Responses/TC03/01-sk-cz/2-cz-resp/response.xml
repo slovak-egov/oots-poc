@@ -1,0 +1,36 @@
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:sdg="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xml="http://www.w3.org/XML/1998/namespace" requestId="urn:uuid:4ffb5281-179d-4578-adf2-39fd13ccc797" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Failure">
+  <rim:Slot name="SpecificationIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>oots-edm:v1.0</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceResponseIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>ec6add72-a2a1-43a0-93a8-3ef66298a570</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="ErrorProvider">
+    <rim:SlotValue xsi:type="rim:AnyValueType">
+      <Agent xmlns="http://data.europa.eu/p4s">
+        <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_CZ_01</Identifier>
+        <Name lang="EN">CZ Ministry of the Projectathon</Name>
+        <Classification>ERRP</Classification>
+      </Agent>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceRequester">
+    <rim:SlotValue xsi:type="rim:AnyValueType">
+      <Agent xmlns="http://data.europa.eu/p4s">
+        <Identifier schemeID="urn:cef.eu:names:identifier:EAS:0190">SK222332242</Identifier>
+        <Name lang="EN">Comenius University Bratislava</Name>
+      </Agent>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rs:Exception xsi:type="query:QueryExceptionType" severity="urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Error" message="Query Exception" detail="Problem during the processing of a QueryRequest" code="EDM:ERR:0008">
+    <rim:Slot name="Timestamp">
+      <rim:SlotValue xsi:type="rim:DateTimeValueType">
+        <rim:Value>2023-10-19T14:17:31+01:00</rim:Value>
+      </rim:SlotValue>
+    </rim:Slot>
+  </rs:Exception>
+</query:QueryResponse>

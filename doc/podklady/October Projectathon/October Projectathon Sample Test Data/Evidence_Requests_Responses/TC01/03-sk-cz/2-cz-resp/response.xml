@@ -1,0 +1,69 @@
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:sdg="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success" xmlns:xml="http://www.w3.org/XML/1998/namespace" requestId="urn:uuid:4ffb5281-179d-4578-adf2-39fd13ccc797">
+  <rim:Slot name="SpecificationIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>oots-edm:v1.0</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceResponseIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>205fc3fc-a825-4045-b07e-f6777fde8fd1</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceRequester">
+    <rim:SlotValue xsi:type="rim:AnyValueType">
+      <Agent xmlns="http://data.europa.eu/p4s">
+        <Identifier schemeID="urn:cef.eu:names:identifier:EAS:0190">SK222332242</Identifier>
+        <Name lang="EN">Comenius University Bratislava</Name>
+      </Agent>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="IssueDateTime">
+    <rim:SlotValue xsi:type="rim:DateTimeValueType">
+      <rim:Value>2023-10-19T12:47:27+01:00</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceProvider">
+    <rim:SlotValue xsi:type="rim:CollectionValueType">
+      <rim:Element xsi:type="rim:AnyValueType">
+        <Agent xmlns="http://data.europa.eu/p4s">
+          <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_CZ_01</Identifier>
+          <Name lang="EN">CZ Ministry of the Projectathon</Name>
+          <Classification>EP</Classification>
+        </Agent>
+      </rim:Element>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:RegistryObjectList>
+    <rim:RegistryObject xsi:type="rim:ExtrinsicObjectType" id="urn:uuid:270a4139-6325-4546-aa34-1555f94e8c05">
+      <rim:Slot name="EvidenceMetadata">
+        <rim:SlotValue xsi:type="rim:AnyValueType">
+          <Evidence xmlns="http://data.europa.eu/p4s">
+            <Identifier>d084560d-e763-4bab-bdb4-9edec33e9cb6</Identifier>
+            <IsAbout>
+              <NaturalPerson>
+                <LevelOfAssurance>High</LevelOfAssurance>
+                <FamilyName>Smith</FamilyName>
+                <GivenName>Jack</GivenName>
+                <DateOfBirth>1999-03-01</DateOfBirth>
+              </NaturalPerson>
+            </IsAbout>
+            <IssuingAuthority>
+              <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered">11fbb482-d317-4f09-b528-9a71300981a1</Identifier>
+              <Name lang=""></Name>
+            </IssuingAuthority>
+            <IsConformantTo>
+              <EvidenceTypeClassification>https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962</EvidenceTypeClassification>
+              <Title lang="EN">EU-Wide Diploma/Bachelor's Degree</Title>
+              <Description lang="EN">The description that the OOTS team specified as static data for this Projectathon related to the EU-Wide evidence</Description>
+            </IsConformantTo>
+            <IssuingDate>2023-10-19</IssuingDate>
+            <Distribution>
+              <Format>application/pdf</Format>
+            </Distribution>
+          </Evidence>
+        </rim:SlotValue>
+      </rim:Slot>
+      <rim:RepositoryItemRef xlink:href="cid:Evidence0@oots.cz" xlink:title="soubor.pdf" />
+    </rim:RegistryObject>
+  </rim:RegistryObjectList>
+</query:QueryResponse>

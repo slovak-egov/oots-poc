@@ -1,0 +1,37 @@
+<query:QueryResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0" xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0" xmlns:sdg="http://data.europa.eu/p4s" xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0" xmlns:xlink="http://www.w3.org/1999/xlink" status="urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success" xmlns:xml="http://www.w3.org/XML/1998/namespace" requestId="urn:uuid:4ffb5281-179d-4578-adf2-39fd13ccc797">
+  <rim:Slot name="SpecificationIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>oots-edm:v1.0</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceResponseIdentifier">
+    <rim:SlotValue xsi:type="rim:StringValueType">
+      <rim:Value>29b7a7a4-f37a-4d98-8aa3-71ade228653e</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceRequester">
+    <rim:SlotValue xsi:type="rim:AnyValueType">
+      <Agent xmlns="http://data.europa.eu/p4s">
+        <Identifier schemeID="urn:cef.eu:names:identifier:EAS:0190">SK222332242</Identifier>
+        <Name lang="EN">Comenius University Bratislava</Name>
+      </Agent>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="IssueDateTime">
+    <rim:SlotValue xsi:type="rim:DateTimeValueType">
+      <rim:Value>2023-10-19T15:26:06+01:00</rim:Value>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:Slot name="EvidenceProvider">
+    <rim:SlotValue xsi:type="rim:CollectionValueType">
+      <rim:Element xsi:type="rim:AnyValueType">
+        <Agent xmlns="http://data.europa.eu/p4s">
+          <Identifier schemeID="urn:oasis:names:tc:ebcore:partyid-type:unregistered:oots-evidence-provider">BR_CZ_01</Identifier>
+          <Name lang="EN">CZ Ministry of the Projectathon</Name>
+          <Classification>EP</Classification>
+        </Agent>
+      </rim:Element>
+    </rim:SlotValue>
+  </rim:Slot>
+  <rim:RegistryObjectList></rim:RegistryObjectList>
+</query:QueryResponse>
