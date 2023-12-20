@@ -10,17 +10,17 @@ import io.swagger.annotations.ApiModelProperty;
 public class CountryCodesResponse {
 
 	@ApiModelProperty(value = "List of country codes", example = "[\"SK\", \"CZ\", \"AT\"]")
-	private List<String> countryCodes;
+	private List<CountryCode> countryCodes;
 
 	public CountryCodesResponse() {
 		this.countryCodes = Collections.emptyList();
 	}
 
-	public CountryCodesResponse(List<String> countryCodes) {
+	public CountryCodesResponse(List<CountryCode> countryCodes) {
 		this.countryCodes = countryCodes;
 	}
 
-	public List<String> getCountryCodes() {
+	public List<CountryCode> getCountryCodes() {
 		return countryCodes;
 	}
 }

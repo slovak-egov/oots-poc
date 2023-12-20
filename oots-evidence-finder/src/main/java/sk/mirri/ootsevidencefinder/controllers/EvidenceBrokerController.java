@@ -1,9 +1,12 @@
 package sk.mirri.ootsevidencefinder.controllers;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -11,6 +14,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +28,7 @@ import org.xml.sax.SAXException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import sk.mirri.ootsevidencefinder.evidencebroker.data.CountryCode;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.CountryCodesResponse;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceType;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceTypesResponse;
@@ -36,6 +41,13 @@ import sk.mirri.ootsevidencefinder.evidencebroker.data.RequirementsResponse;
 @RestController
 @RequestMapping("/commonservices/eb")
 public class EvidenceBrokerController {
+
+	private final Map<String, String> countryCodeMap;
+
+	@Autowired
+	public EvidenceBrokerController(Map<String, String> countryCodeMap) {
+		this.countryCodeMap = countryCodeMap;
+	}
 
 	@ApiOperation(value = "Lookup Country Codes", notes = "Retrieve a list of country codes.")
 	@GetMapping("/lookup/countryCodes")
@@ -66,7 +78,9 @@ public class EvidenceBrokerController {
 			}
 
 			// You can return the response as a String
-			return new CountryCodesResponse(countryCodes.stream().sorted().collect(Collectors.toList()));
+			return new CountryCodesResponse(countryCodes.stream().sorted()
+					.map(item -> new CountryCode(item, countryCodeMap.getOrDefault(item, item)))
+					.collect(Collectors.toList()));
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// Handle exceptions
@@ -93,6 +107,7 @@ public class EvidenceBrokerController {
 			NodeList requirementElements = doc.getElementsByTagName("oots:ReferenceFramework");
 
 			// Create a list to store the requirement information
+			List<String> procedureIdentifiers = new ArrayList<String>();
 			List<ProcedureType> requirements = new ArrayList<>();
 
 			// Iterate through the requirement elements
@@ -109,18 +124,77 @@ public class EvidenceBrokerController {
 					String name = requirementElement.getElementsByTagName("oots:Title").item(0).getTextContent().trim();
 
 					// Create a RequirementInfo object and add it to the list
+					// requirements.add(new ProcedureType(identifier, name));
+					// procedureIdentifiers.add(identifier);
 					requirements.add(new ProcedureType(identifier, name));
 				}
 			}
 
 			// You can return the list of RequirementInfo objects
-			return new ProcedureTypesResponse(requirements);
+			return new ProcedureTypesResponse(
+					/* translateProcedureTypes(procedureIdentifiers, countryCode) */ requirements);
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// Handle exceptions
 			e.printStackTrace();
 			return new ProcedureTypesResponse();
 		}
+	}
+
+	private List<ProcedureType> translateProcedureTypes(List<String> someIdentifiers, String aLanguageCode) {
+		List<ProcedureType> procedureTypes = new ArrayList<>();
+
+		try {
+			// URL of the XML file
+			String url = "https://code.europa.eu/oots/tdd/tdd_chapters/-/raw/master/OOTS-EDM/codelists/OOTS/Procedures-CodeList.gc";
+
+			// Open connection to the URL and get the input stream
+			InputStream inputStream = new URL(url).openStream();
+
+			// Create a DocumentBuilderFactory and DocumentBuilder to parse XML
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+
+			// Parse the XML from the input stream
+			Document doc = builder.parse(inputStream);
+
+			// Close the input stream
+			inputStream.close();
+
+			// Get all Row elements from SimpleCodeList
+			NodeList rows = doc.getElementsByTagName("Row");
+
+			// Loop through each Row to find matching identifiers and country code
+			for (int i = 0; i < rows.getLength(); i++) {
+				Element row = (Element) rows.item(i);
+				NodeList values = row.getElementsByTagName("Value");
+
+				String code = "";
+				String description = "";
+
+				for (int j = 0; j < values.getLength(); j++) {
+					Element value = (Element) values.item(j);
+					String columnRef = value.getAttribute("ColumnRef");
+
+					if (columnRef.equals("code")) {
+						code = value.getElementsByTagName("SimpleValue").item(0).getTextContent();
+					} else if (columnRef.startsWith("name-") && columnRef.substring(5).equals(aLanguageCode)) {
+						description = value.getElementsByTagName("SimpleValue").item(0).getTextContent();
+					}
+				}
+
+				// If the code matches the given country code and a description is found, add to
+				// the list
+				if (someIdentifiers.contains(code) && !description.isEmpty()) {
+					procedureTypes.add(new ProcedureType(code, description));
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return procedureTypes;
 	}
 
 //	@ApiOperation(value = "Lookup Requirements", notes = "Retrieve requirements for a specific country code and procedure ID.")
