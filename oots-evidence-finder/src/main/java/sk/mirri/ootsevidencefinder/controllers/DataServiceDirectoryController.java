@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,11 +29,16 @@ import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceProvidersResponse
 @RestController
 @RequestMapping("/commonservices/dsd")
 public class DataServiceDirectoryController {
+
+	@Value("${commonservices.url}")
+	private String commonservicesUrl;
+
 	@ApiOperation(value = "Lookup Evidence Types", notes = "Retrieve evidence providers for a specific country code and evidence type.")
 	@GetMapping("/lookup/dataServices/{countryCode}")
 	public EvidenceProvidersResponse lookupEvidenceProviders(@PathVariable String countryCode,
 			@RequestParam("evidenceType") String evidenceType) {
-		String queryUrl = "https://projectathon.oots-common-services.eu/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code="
+		String queryUrl = commonservicesUrl
+				+ "/query/dsd/rest/search?queryId=urn:fdc:oots:dsd:ebxml-regrep:queries:dataservices-by-evidencetype-and-jurisdiction&country-code="
 				+ countryCode + "&evidence-type-classification=" + evidenceType;
 
 		try {

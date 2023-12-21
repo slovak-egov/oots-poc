@@ -15,6 +15,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,9 @@ public class EvidenceBrokerController {
 
 	private final Map<String, String> countryCodeMap;
 
+	@Value("${commonservices.url}")
+	private String commonservicesUrl;
+
 	@Autowired
 	public EvidenceBrokerController(Map<String, String> countryCodeMap) {
 		this.countryCodeMap = countryCodeMap;
@@ -52,7 +56,8 @@ public class EvidenceBrokerController {
 	@ApiOperation(value = "Lookup Country Codes", notes = "Retrieve a list of country codes.")
 	@GetMapping("/lookup/countryCodes")
 	public CountryCodesResponse lookupCountryCodes() {
-		String queryUrl = "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction";
+		String queryUrl = commonservicesUrl
+				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction";
 
 		try {
 			// Create a DocumentBuilder
@@ -92,7 +97,8 @@ public class EvidenceBrokerController {
 	@ApiOperation(value = "Lookup Procedure Types", notes = "Retrieve procedure types for a specific country code.")
 	@GetMapping("/lookup/procedureTypes/{countryCode}")
 	public ProcedureTypesResponse lookupProcedureTypes(@PathVariable String countryCode) {
-		String queryUrl = "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
+		String queryUrl = commonservicesUrl
+				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
 				+ countryCode;
 
 		try {
@@ -239,7 +245,8 @@ public class EvidenceBrokerController {
 	@ApiOperation(value = "Lookup Requirements", notes = "Retrieve requirements for a specific country code and procedure ID.")
 	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
 	public RequirementsResponse lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) {
-		String queryUrl = "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
+		String queryUrl = commonservicesUrl
+				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
 				+ countryCode + "&procedure-id=" + procedureId;
 
 		try {
@@ -289,7 +296,8 @@ public class EvidenceBrokerController {
 	@GetMapping("/lookup/evidenceTypes/{countryCode}")
 	public EvidenceTypesResponse lookupEvidenceTypes(@PathVariable String countryCode,
 			@RequestParam("requirementId") String requirementId) {
-		String queryUrl = "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code="
+		String queryUrl = commonservicesUrl
+				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code="
 				+ countryCode + "&requirement-id=" + requirementId;
 
 		try {
