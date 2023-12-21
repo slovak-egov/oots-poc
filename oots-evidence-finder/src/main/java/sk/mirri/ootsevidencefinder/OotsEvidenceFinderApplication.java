@@ -67,8 +67,8 @@ public class OotsEvidenceFinderApplication {
 					countryCodeMap.put(countryCode, countryName);
 				}
 
-				// Here, countryCode and countryName will have the values for each country.
-				System.out.println("Country Code: " + countryCode + ", Country Name: " + countryName);
+				// System.out.println("Country Code: " + countryCode + ", Country Name: " +
+				// countryName);
 			}
 
 		} catch (IOException | javax.xml.parsers.ParserConfigurationException | org.xml.sax.SAXException e) {
