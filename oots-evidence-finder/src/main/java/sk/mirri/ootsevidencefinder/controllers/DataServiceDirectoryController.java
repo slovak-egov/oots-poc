@@ -33,7 +33,7 @@ public class DataServiceDirectoryController {
 	@Value("${commonservices.url}")
 	private String commonservicesUrl;
 
-	@ApiOperation(value = "Lookup Evidence Types", notes = "Retrieve evidence providers for a specific country code and evidence type.")
+	@ApiOperation(value = "Vyhľadať poskytovateľov dôkazov", notes = "Získa zoznam poskytovateľov dôkazov pre konkrétnu krajinu a typ dôkazu.")
 	@GetMapping("/lookup/dataServices/{countryCode}")
 	public EvidenceProvidersResponse lookupEvidenceProviders(@PathVariable String countryCode,
 			@RequestParam("evidenceType") String evidenceType) {

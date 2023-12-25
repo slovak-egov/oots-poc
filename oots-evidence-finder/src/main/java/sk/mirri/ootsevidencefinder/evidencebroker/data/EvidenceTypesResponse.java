@@ -6,10 +6,12 @@ import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Response containing a list of evidence types")
+@ApiModel(description = "Odpoveď so zoznamom typov dôkazov")
 public class EvidenceTypesResponse {
 
-	@ApiModelProperty(value = "List of evidence types")
+	@ApiModelProperty(value = "Zoznam typov dôkazov", example = "{\r\n" + "  \"evidenceTypes\": [\r\n" + "    {\r\n"
+			+ "      \"id\": \"https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962\",\r\n"
+			+ "      \"description\": \"EU-Wide Diploma/Bachelor's Degree\"\r\n" + "    }\r\n" + "  ]\r\n" + "}")
 	private List<EvidenceType> evidenceTypes;
 
 	public EvidenceTypesResponse() {

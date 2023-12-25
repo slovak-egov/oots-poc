@@ -3,12 +3,12 @@ package sk.mirri.ootsevidencefinder.evidencebroker.data;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Evidence type")
+@ApiModel(description = "Typ dôkazu")
 public class EvidenceType {
-	@ApiModelProperty(value = "Evidence type ID", example = "1")
+	@ApiModelProperty(value = "Identifikátor typu dôkazu", example = "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962")
 	private String id;
 
-	@ApiModelProperty(value = "Evidence Type Description", example = "Description of Evidence type 1")
+	@ApiModelProperty(value = "Popis typu dôkazu", example = "EU-Wide Diploma/Bachelor's Degree")
 	private String description;
 
 	public EvidenceType(String id, String description) {

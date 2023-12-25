@@ -3,12 +3,12 @@ package sk.mirri.ootsevidencefinder.evidencebroker.data;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Procedure type")
+@ApiModel(description = "Tyz procedúry")
 public class ProcedureType {
-	@ApiModelProperty(value = "Proceture type identifier", example = "1")
+	@ApiModelProperty(value = "Identifikátor typu procedúry", example = "T1")
 	private String id;
 
-	@ApiModelProperty(value = "Procedure type description", example = "Description of procedure type 1")
+	@ApiModelProperty(value = "Popis typu procedúry", example = "Applying for a tertiary education study financing, such as study grants and loans from a public body or institution")
 	private String description;
 
 	public ProcedureType(String id, String description) {

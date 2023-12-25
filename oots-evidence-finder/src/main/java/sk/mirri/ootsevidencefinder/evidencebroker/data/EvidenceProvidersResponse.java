@@ -6,10 +6,12 @@ import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Response containing a list of evidence providers")
+@ApiModel(description = "Odpoveď so zoznamom poskytovateľov dôkazov")
 public class EvidenceProvidersResponse {
 
-	@ApiModelProperty(value = "List of evidence providers")
+	@ApiModelProperty(value = "Zoznam poskytovateľov dôkazov", example = "{\r\n" + "  \"evidenceProviders\": [\r\n"
+			+ "    {\r\n" + "      \"id\": \"sk_test_ap\",\r\n"
+			+ "      \"description\": \"SK Ministry of the Projectathon\"\r\n" + "    }\r\n" + "  ]\r\n" + "}")
 	private List<EvidenceProvider> evidenceProviders;
 
 	public EvidenceProvidersResponse() {

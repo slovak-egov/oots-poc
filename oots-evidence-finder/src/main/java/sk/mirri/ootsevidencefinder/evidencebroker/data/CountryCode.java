@@ -3,12 +3,12 @@ package sk.mirri.ootsevidencefinder.evidencebroker.data;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Country code")
+@ApiModel(description = "Skratka krajiny a názov")
 public class CountryCode {
-	@ApiModelProperty(value = "Country code id", example = "SK")
+	@ApiModelProperty(value = "Skratka", example = "SK")
 	private String id;
 
-	@ApiModelProperty(value = "Country name", example = "Slovakia")
+	@ApiModelProperty(value = "Názov krajiny", example = "Slovakia")
 	private String description;
 
 	public CountryCode(String id, String description) {

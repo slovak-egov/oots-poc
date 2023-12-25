@@ -53,7 +53,7 @@ public class EvidenceBrokerController {
 		this.countryCodeMap = countryCodeMap;
 	}
 
-	@ApiOperation(value = "Lookup Country Codes", notes = "Retrieve a list of country codes.")
+	@ApiOperation(value = "Vyhľadať zoznam krajín", notes = "Získa zoznam krajín.")
 	@GetMapping("/lookup/countryCodes")
 	public CountryCodesResponse lookupCountryCodes() {
 		String queryUrl = commonservicesUrl
@@ -94,7 +94,7 @@ public class EvidenceBrokerController {
 		}
 	}
 
-	@ApiOperation(value = "Lookup Procedure Types", notes = "Retrieve procedure types for a specific country code.")
+	@ApiOperation(value = "Vyhľadať zoznam typov procedúr", notes = "Získa zoznam procedúr pre konkrétnu krajinu.")
 	@GetMapping("/lookup/procedureTypes/{countryCode}")
 	public ProcedureTypesResponse lookupProcedureTypes(@PathVariable String countryCode) {
 		String queryUrl = commonservicesUrl
@@ -242,7 +242,7 @@ public class EvidenceBrokerController {
 //		}
 //	}
 
-	@ApiOperation(value = "Lookup Requirements", notes = "Retrieve requirements for a specific country code and procedure ID.")
+	@ApiOperation(value = "Vyhľadať požiadavky", notes = "Získa zoznam požiadavok pre konkrétnu krajinu a identifikátor procedúry.")
 	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
 	public RequirementsResponse lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) {
 		String queryUrl = commonservicesUrl
@@ -292,7 +292,7 @@ public class EvidenceBrokerController {
 
 	}
 
-	@ApiOperation(value = "Lookup Evidence Types", notes = "Retrieve evidence types for a specific country code and requirement.")
+	@ApiOperation(value = "Vyhľadať zoznam typov dôkazov", notes = "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.")
 	@GetMapping("/lookup/evidenceTypes/{countryCode}")
 	public EvidenceTypesResponse lookupEvidenceTypes(@PathVariable String countryCode,
 			@RequestParam("requirementId") String requirementId) {

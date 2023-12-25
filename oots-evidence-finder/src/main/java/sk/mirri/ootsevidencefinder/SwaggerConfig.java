@@ -25,7 +25,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
 	private ApiInfo apiInfoMetaData() {
 
-		return new ApiInfoBuilder().title("OOTS EVIDENCE FINDER").description("Evidence finder for OOTS PoC")
+		return new ApiInfoBuilder().title("OOTS EVIDENCE FINDER").description(
+				"Umožňuje vyhľadávať procedúry, požiadavky, typy dôkazov a poskytovateľov registrovaných pre konkrétne krajiny európskej únie.")
 				// .contact(new Contact("Dev-Team", "https://www.dev-team.com/",
 				// "dev-team@gmail.com"))
 				// .license("Apache
