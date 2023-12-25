@@ -1,5 +1,7 @@
 # OOTS EVIDENCE FINDER
 
+Umožňuje vyhľadávať procedúry, požiadavky, typy dôkazov a poskytovateľov registrovaných pre konkrétne krajiny európskej únie.
+
 ## Dokumentácia
 
 - [Inštalácia](INSTALL.md)
