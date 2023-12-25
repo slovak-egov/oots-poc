@@ -243,7 +243,7 @@ public class EvidenceBrokerController {
 //		}
 //	}
 
-	@ApiOperation(value = "Vyhľadať požiadavky", notes = "Získa zoznam požiadavok pre konkrétnu krajinu a identifikátor procedúry.")
+	@ApiOperation(value = "Vyhľadať požiadavky", notes = "Získa zoznam požiadaviek pre konkrétnu krajinu a identifikátor procedúry.")
 	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
 	public RequirementsResponse lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) {
 		String queryUrl = commonservicesUrl

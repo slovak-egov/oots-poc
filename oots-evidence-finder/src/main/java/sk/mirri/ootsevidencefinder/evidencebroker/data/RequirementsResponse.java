@@ -6,10 +6,10 @@ import java.util.List;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(description = "Odpoveď so zoznamom požiadavok")
+@ApiModel(description = "Odpoveď so zoznamom požiadaviek")
 public class RequirementsResponse {
 
-	@ApiModelProperty(value = "Zoznam požiadavok", example = "{\r\n" + "  \"requirements\": [\r\n" + "    {\r\n"
+	@ApiModelProperty(value = "Zoznam požiadaviek", example = "{\r\n" + "  \"requirements\": [\r\n" + "    {\r\n"
 			+ "      \"id\": \"https://sr.oots.tech.ec.europa.eu/requirements/9196feb5-a88f-488d-8aad-7842cf64d1ac\",\r\n"
 			+ "      \"description\": \"Proof of secondary education diploma/certificate\"\r\n" + "    },\r\n"
 			+ "    {\r\n"
