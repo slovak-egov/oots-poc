@@ -138,7 +138,8 @@ public class EvidenceBrokerController {
 
 			// You can return the list of RequirementInfo objects
 			return new ProcedureTypesResponse(
-					/* translateProcedureTypes(procedureIdentifiers, countryCode) */ requirements);
+					/* translateProcedureTypes(procedureIdentifiers, countryCode) */ requirements.stream().distinct()
+							.collect(Collectors.toList()));
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// Handle exceptions

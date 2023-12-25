@@ -1,5 +1,7 @@
 package sk.mirri.ootsevidencefinder.evidencebroker.data;
 
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -22,5 +24,20 @@ public class ProcedureType {
 
 	public String getDescription() {
 		return description;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(description, id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof ProcedureType))
+			return false;
+		ProcedureType other = (ProcedureType) obj;
+		return Objects.equals(description, other.description) && Objects.equals(id, other.id);
 	}
 }
