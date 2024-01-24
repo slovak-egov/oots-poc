@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Version 0.9 
+	Added Cardinalities to all the elements required
+	Added new elements, required for xml generation
+	Restructured existing elements to align with EDM requirements (Changes must be applied to the wiki pages of the OOTS Data Models 
+	Added LoA Attributes to the necessary elements in Core Person And Core Business representations 
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:sdg="http://data.europa.eu/sdg#"
+	targetNamespace="http://data.europa.eu/sdg#" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" vc:minVersion="1.1">
+
+	<!-- Types -->
+	
+	<xs:complexType name="AgentType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Name"/>
+			<xs:element name="Address" type="sdg:AddressType" minOccurs="0"/>
+			<xs:element name="Location" type="sdg:LocationType" minOccurs="0"/>
+			<xs:element name="Jurisdiction" type="sdg:JurisdictionType" minOccurs="0"/>
+		<!-- Classification is used to distinguish between EvidenceProvider / EvidenceRequester and Intermidiary Platform. Must be a codelist -->
+			<xs:element name="Classification" type="sdg:CodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ReferenceFrameworkType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Title" minOccurs="0"/>
+			<xs:element ref="sdg:Description" minOccurs="0"/>
+			<xs:element name="RelatedTo" type="sdg:ReferenceFrameworkType" minOccurs="0"/>
+			<xs:element ref="sdg:Jurisdiction" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="JurisdictionType">
+		<xs:sequence>
+			<xs:element name="AdminUnitLevel1" type="sdg:CodeType"/>
+			<xs:element name="AdminUnitLevel2" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element name="AdminUnitLevel3" type="sdg:CodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RequirementType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Name"/>
+			<xs:element ref="sdg:Description" minOccurs="0"/>
+			<xs:element name="ReferenceFramework" type="sdg:ReferenceFrameworkType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="EvidenceTypeList" type="sdg:EvidenceTypeListType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="IssuedBy" type="sdg:AgentType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceTypeListType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Name" minOccurs="0"/>
+			<xs:element ref="sdg:Description" minOccurs="0"/>
+			<xs:element name="EvidenceType" type="sdg:EvidenceTypeType" minOccurs="1"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceTypeType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Description" minOccurs="0"/>
+			<xs:element name="EvidenceTypeClassification" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element ref="sdg:Jurisdiction" minOccurs="0"/>
+			<xs:element name="Distribution" type="sdg:DistributionType" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CodeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+
+	</xs:complexType>
+	<xs:complexType name="DataServiceDirectoryType">
+		<xs:sequence>
+			<xs:element name="Service" type="sdg:DataServiceType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DataServiceType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:ConformsTo"/>
+			<xs:element name="ServesEvidenceType" type="sdg:DataServiceEvidenceTypeType"
+				minOccurs="0"/>
+			<xs:element name="Publisher" type="sdg:EvidenceProviderType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DataServiceEvidenceTypeType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier" minOccurs="1" />
+			<xs:element name="EvidenceTypeClassification" type="sdg:CodeType" minOccurs="1"
+				maxOccurs="1"/>
+
+			<xs:element name="Title" type="xs:string"/>
+			<xs:element ref="sdg:ConformsTo" minOccurs="0"/>
+			<xs:element name="DistributedAs" type="sdg:EvidenceTypeDistributionType" minOccurs="1"
+				maxOccurs="unbounded"/>
+
+			<xs:element name="AccessService" type="sdg:DataServiceType" minOccurs="0"
+				maxOccurs="unbounded"/>
+
+			<xs:element name="EvidenceSubjectLevelOfAssurance" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element name="EvidenceSubjectIdentifierScheme" type="sdg:CodeType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element name="EvidenceSubjectNature" type="sdg:CodeType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EvidenceProviderDeterminationContext" type="sdg:MultilingualStringType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:element ref="sdg:Jurisdiction" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceTypeDistributionType">
+		<xs:sequence>
+			<xs:element name="Format" type="sdg:CodeType"/>
+			<xs:element ref="sdg:ConformsTo" minOccurs="0"/>
+			<xs:element name="DataService" type="sdg:DataServiceEvidenceTypeType" minOccurs="0"/>
+			<xs:element name="Transformation" type="xs:anyURI" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceProviderType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Name"/>
+			<xs:element name="Address" type="sdg:AddressType"/>
+			<xs:element name="Jurisdiction" type="sdg:JurisdictionType"/>
+			<xs:element name="Classification" type="sdg:CodeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier" minOccurs="0"/>
+			<xs:element name="FullAddress" type="xs:string" minOccurs="0"/>
+			<xs:element name="LocatorDesignator" type="xs:string" minOccurs="0"/>
+			<xs:element name="LocatorName" type="xs:string" minOccurs="0"/>
+			<xs:element name="PostCode" type="xs:string" minOccurs="0"/>
+			<xs:element name="PostCityName" type="xs:string" minOccurs="0"/>
+			<xs:element name="PostOfficeBox" type="xs:string" minOccurs="0"/>
+			<xs:element name="Thoroughfare" type="xs:string" minOccurs="0"/>
+			<xs:element name="AddressArea" type="xs:string" minOccurs="0"/>
+			<xs:element name="AdminUnitLevel1" type="sdg:CodeType"/>
+			<xs:element name="AdminUnitLevel2" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element name="AdminUnitLevel3" type="sdg:CodeType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+	</xs:complexType>
+
+	<xs:complexType name="LocationType">
+		<xs:sequence>
+			<xs:element name="GeographicIdentifier" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element name="GeographicName" type="xs:string" minOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+	</xs:complexType>
+
+	<xs:complexType name="EvidenceRequesterType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element ref="sdg:Name"/>
+			<xs:element name="Address" type="sdg:AddressType"/>
+			<xs:element name="Location" type="sdg:LocationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="DistributionType">
+		<xs:sequence>
+			<xs:element name="Format" type="sdg:CodeType"/>
+			<xs:element name="PackagingFormat" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element name="CompressionFormat" type="sdg:CodeType" minOccurs="0"/>
+			<xs:element ref="sdg:Language" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="sdg:ConformsTo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- implemented start and end date, following ubl -->
+	<xs:complexType name="PeriodType">
+		<xs:sequence>
+			<xs:element name="StartDate" type="xs:date"/>
+			<xs:element name="EndDate" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PersonType">
+		<xs:sequence>
+			<!-- EIDAS Mandatory MDS -->
+			<xs:element ref="sdg:Identifier" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="FamilyName" type="sdg:LoAStringType" minOccurs="1"/>
+			<xs:element name="GivenName" type="sdg:LoAStringType" minOccurs="1"/>
+			<xs:element name="DateOfBirth" type="sdg:LoADateType" minOccurs="1"/>
+
+			<!-- EIDAS Optional MDS -->
+			<xs:element name="BirthName" type="sdg:LoAStringType" minOccurs="0"/>
+			<xs:element name="PlaceOfBirth" type="sdg:AddressType" minOccurs="0"/>
+			<xs:element name="CurrentAddress" type="sdg:AddressType" minOccurs="0"/>
+			<xs:element name="Gender" type="sdg:CodeType" minOccurs="0"/>
+
+			<!-- Rest of Optional Attributes -->
+			<xs:element name="AlternativeName" type="sdg:LoAStringType" minOccurs="0"/>
+			<xs:element name="Citizenship" type="sdg:LoAStringType" minOccurs="0"/>
+			<xs:element name="CountryOfBirth" type="sdg:LoAStringType" minOccurs="0"/>
+			<xs:element name="CountryOfDeath" type="sdg:LoAStringType" minOccurs="0"/>
+
+			<xs:element name="DateOfDeath" type="sdg:LoADateType" minOccurs="0"/>
+
+			<xs:element name="FullName" type="sdg:LoAStringType" minOccurs="0"/>
+
+			<xs:element name="PatronymicName" type="sdg:LoAStringType" minOccurs="0"/>
+			<xs:element name="PlaceOfDeath" type="sdg:LocationType" minOccurs="0"/>
+			<xs:element name="Residency" type="sdg:LoAStringType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LegalPersonType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="Legalindentifier" type="sdg:IdentifierType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LegalName" type="sdg:LoAStringType" minOccurs="1"/>
+			<xs:element name="RegisteredAddress" type="sdg:AddressType" minOccurs="0"/>
+			<xs:element name="AlternativeName" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IdentifierType">
+		<xs:simpleContent>
+			<xs:extension base="xs:normalizedString">
+				<xs:attribute name="SchemeID" type="xs:normalizedString" />
+				<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="LoAStringType">
+		<xs:simpleContent>
+			<xs:extension base="xs:normalizedString">
+				<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="MultilingualStringType">
+		<xs:simpleContent>
+			<xs:extension base="xs:normalizedString">
+				<xs:attribute name="lang" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="LoAMultilingualStringType">
+		<xs:simpleContent>
+			<xs:extension base="sdg:MultilingualStringType">
+				<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>	
+	
+	<xs:complexType name="LoADateType">
+		<xs:simpleContent>
+			<xs:extension base="xs:date">
+				<xs:attribute name="LevelOfAssurance" type="xs:normalizedString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="PublicOrganisationType">
+		<xs:sequence>
+			<xs:element ref="sdg:Identifier"/>
+			<xs:element name="Address" type="sdg:AddressType" minOccurs="0"/>
+			<xs:element name="AlternativeLabel" type="xs:string" minOccurs="0"/>
+			<xs:element name="PreferredLabel" type="xs:string"/>
+			<xs:element name="ResultedFrom" type="sdg:FoundationEventType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FoundationEventType"/>
+
+
+	<!-- Elements typically used in Regrep Messages -->
+	<xs:element name="Language" type="sdg:CodeType"/>
+	<xs:element name="Identifier" type="sdg:IdentifierType"/>
+	<xs:element name="Description" type="sdg:MultilingualStringType"/>
+	<xs:element name="Title" type="sdg:MultilingualStringType"/>
+	<xs:element name="Name" type="sdg:MultilingualStringType"/>
+	<xs:element name="IssuedBy" type="sdg:AgentType"/>
+	<xs:element name="Jurisdiction" type="sdg:JurisdictionType"/>
+	<xs:element name="ConformsTo" type="xs:anyURI"/>
+	<xs:element name="Person" type="sdg:PersonType"/>
+	<xs:element name="LegalPerson" type="sdg:LegalPersonType"/>
+	<xs:element name="EvidenceType" type="sdg:EvidenceTypeType"/>	
+	<xs:element name="Agent" type="sdg:AgentType" />
+	<xs:element name="EvidenceRequester" type="sdg:AgentType" />
+	<xs:element name="EvidenceProvider" type="sdg:AgentType" />
+
+
+	<xs:element name="Evidence">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sdg:Identifier"/>
+				<xs:element name="IsAbout" minOccurs="1">
+					<xs:complexType>
+						<xs:choice>
+							<xs:element name="NaturalPerson" type="sdg:PersonType"/>
+							<xs:element name="LegalPerson" type="sdg:LegalPersonType"/>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="IssuingAuthority" type="sdg:AgentType" minOccurs="1"/>
+				<xs:element name="IsConformantTo" type="sdg:EvidenceTypeType"/>
+				<xs:element name="IssuingDate" type="xs:date" />
+				<xs:element name="Distribution" type="sdg:DistributionType" />
+				<xs:element name="ValidityPeriod" type="sdg:PeriodType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DataServiceEvidenceType" type="sdg:DataServiceEvidenceTypeType"/>
+	<xs:element name="Requirement" type="sdg:RequirementType"/>
+</xs:schema>

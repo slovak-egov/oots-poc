@@ -1,6 +1,0 @@
-version: '3'
-
-services:
-  app:
-    environment:
-      - COMMON_SERVICES_URL=https://projectathon.oots-common-services.eu

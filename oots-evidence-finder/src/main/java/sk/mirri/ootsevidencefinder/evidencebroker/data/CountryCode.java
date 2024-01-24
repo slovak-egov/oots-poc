@@ -6,21 +6,21 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Skratka krajiny a názov")
 public class CountryCode {
 	@ApiModelProperty(value = "Skratka", example = "SK")
-	private String id;
+	private String countryCode;
 
 	@ApiModelProperty(value = "Názov krajiny", example = "Slovakia")
-	private String description;
+	private String countryName;
 
 	public CountryCode(String id, String description) {
-		this.id = id;
-		this.description = description;
+		this.countryCode = id;
+		this.countryName = description;
 	}
 
-	public String getId() {
-		return id;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getCountryName() {
+		return countryName;
 	}
 }

@@ -30,7 +30,7 @@ import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceProvidersResponse
 @RequestMapping("/commonservices/dsd")
 public class DataServiceDirectoryController {
 
-	@Value("${commonservices.url}")
+	@Value("${dsd.url}")
 	private String commonservicesUrl;
 
 	@ApiOperation(value = "Vyhľadať poskytovateľov dôkazov", notes = "Získa zoznam poskytovateľov dôkazov pre konkrétnu krajinu a typ dôkazu.")

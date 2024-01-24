@@ -1,0 +1,67 @@
+<bindings
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  version="3.0"
+  xmlns="https://jakarta.ee/xml/ns/jaxb">
+
+
+
+  <bindings node="//xs:schema//xs:element[@name='title']"
+    schemaLocation="../xml/xlink.xsd">
+    <property name="xlTitle"/>
+  </bindings>
+
+  <bindings schemaLocation="../regrep4/lcm.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.regrep.lcm"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../regrep4/rim.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.regrep.rim"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../regrep4/query.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.regrep.query"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../regrep4/rs.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.regrep.rs"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../regrep4/spi.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.regrep.spi"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../sdg/SDG-GenericMetadataProfile-v1.0.0.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.sdg"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../xml/xlink.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.xlink"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../xml/ws-addr.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.wsaddr"/>
+    </schemaBindings>
+  </bindings>
+
+  <bindings schemaLocation="../xml/xml.xsd">
+    <schemaBindings>
+      <package name="eu.europa.oots.binding.xml"/>
+    </schemaBindings>
+  </bindings>
+
+</bindings>

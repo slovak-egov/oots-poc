@@ -3,24 +3,18 @@ package sk.mirri.ootsevidencefinder.controllers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -30,7 +24,6 @@ import org.xml.sax.SAXException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.CountryCode;
-import sk.mirri.ootsevidencefinder.evidencebroker.data.CountryCodesResponse;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceType;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceTypesResponse;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.ProcedureType;
@@ -43,9 +36,10 @@ import sk.mirri.ootsevidencefinder.evidencebroker.data.RequirementsResponse;
 @RequestMapping("/commonservices/eb")
 public class EvidenceBrokerController {
 
+	private static Logger LOGGER = LoggerFactory.getLogger(EvidenceBrokerController.class);
 	private final Map<String, String> countryCodeMap;
 
-	@Value("${commonservices.url}")
+	@Value("${eb.url}")
 	private String commonservicesUrl;
 
 	@Autowired
@@ -55,42 +49,66 @@ public class EvidenceBrokerController {
 
 	@ApiOperation(value = "Vyhľadať zoznam krajín", notes = "Získa zoznam krajín.")
 	@GetMapping("/lookup/countryCodes")
-	public CountryCodesResponse lookupCountryCodes() {
+	public List<CountryCode> lookupCountryCodes() {
 		String queryUrl = commonservicesUrl
-				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction";
+				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction";
 
 		try {
-			// Create a DocumentBuilder
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-
-			// Parse the XML from the URL
 			Document doc = builder.parse(queryUrl);
-
-			// Get the NodeList of oots:AdminUnitLevel1 elements
 			NodeList adminUnitLevel1Elements = doc.getElementsByTagName("oots:AdminUnitLevel1");
 
 			// Iterate through the oots:AdminUnitLevel1 elements
 			Set<String> countryCodes = new HashSet<String>();
 			for (int i = 0; i < adminUnitLevel1Elements.getLength(); i++) {
 				Node adminUnitLevel1 = adminUnitLevel1Elements.item(i);
-
-				// Get the text content of the oots:AdminUnitLevel1 element
 				String adminUnitLevel1Value = adminUnitLevel1.getTextContent();
-
-				// Append the value to your response
 				countryCodes.add(adminUnitLevel1Value);
 			}
 
-			// You can return the response as a String
-			return new CountryCodesResponse(countryCodes.stream().sorted()
+			return countryCodes.stream().sorted()
 					.map(item -> new CountryCode(item, countryCodeMap.getOrDefault(item, item)))
-					.collect(Collectors.toList()));
+					.collect(Collectors.toList());
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// Handle exceptions
 			e.printStackTrace();
-			return new CountryCodesResponse();
+			return Collections.emptyList();
+		}
+	}
+
+	@CrossOrigin(origins = "*")
+	@ApiOperation(value = "Vyhľadať zoznam krajín pre procedúru", notes = "Získa zoznam krajín pre danú procedúru.")
+	@GetMapping("/lookup/countryCodes/{procedureId}")
+	public List<CountryCode> lookupCountryCodesForProcedure(@PathVariable String procedureId) {
+		String queryUrl = commonservicesUrl
+				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id="
+				+ procedureId;
+
+		LOGGER.debug("Obtaining countries for procedure " + procedureId);
+
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+
+			Document doc = builder.parse(queryUrl);
+			NodeList adminUnitLevel1Elements = doc.getElementsByTagName("oots:AdminUnitLevel1");
+
+			// Iterate through the oots:AdminUnitLevel1 elements
+			Set<String> countryCodes = new HashSet<String>();
+			for (int i = 0; i < adminUnitLevel1Elements.getLength(); i++) {
+				Node adminUnitLevel1 = adminUnitLevel1Elements.item(i);
+				String adminUnitLevel1Value = adminUnitLevel1.getTextContent();
+				countryCodes.add(adminUnitLevel1Value);
+			}
+
+			return countryCodes.stream().sorted()
+					.map(item -> new CountryCode(item, countryCodeMap.getOrDefault(item, item)))
+					.collect(Collectors.toList());
+
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			e.printStackTrace();
+			return Collections.emptyList();
 		}
 	}
 
@@ -102,17 +120,12 @@ public class EvidenceBrokerController {
 				+ countryCode;
 
 		try {
-			// Create a DocumentBuilder
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-
-			// Parse the XML from the URL
 			Document doc = builder.parse(queryUrl);
 
-			// Get the NodeList of oots:Requirement elements
 			NodeList requirementElements = doc.getElementsByTagName("oots:ReferenceFramework");
 
-			// Create a list to store the requirement information
 			List<String> procedureIdentifiers = new ArrayList<String>();
 			List<ProcedureType> requirements = new ArrayList<>();
 
@@ -123,20 +136,20 @@ public class EvidenceBrokerController {
 				if (requirementNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element requirementElement = (Element) requirementNode;
 
-					// Get the "Identifier" and "Name" elements within the "oots:Requirement"
-					// element
+
 					String identifier = requirementElement.getElementsByTagName("oots:RelatedTo").item(0)
 							.getTextContent().trim();
 					String name = requirementElement.getElementsByTagName("oots:Title").item(0).getTextContent().trim();
 
-					// Create a RequirementInfo object and add it to the list
-					// requirements.add(new ProcedureType(identifier, name));
-					// procedureIdentifiers.add(identifier);
 					requirements.add(new ProcedureType(identifier, name));
 				}
 			}
 
-			// You can return the list of RequirementInfo objects
+			try {
+				// You can return the list of RequirementInfo objects
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 			return new ProcedureTypesResponse(
 					/* translateProcedureTypes(procedureIdentifiers, countryCode) */ requirements.stream().distinct()
 							.collect(Collectors.toList()));
@@ -204,44 +217,7 @@ public class EvidenceBrokerController {
 		return procedureTypes;
 	}
 
-//	@ApiOperation(value = "Lookup Requirements", notes = "Retrieve requirements for a specific country code and procedure ID.")
-//	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
-//	public String lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) {
-//		String queryUrl = "https://projectathon.oots-common-services.eu/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
-//				+ countryCode + "&procedure-id=" + procedureId;
-//
-//		try {
-//			// Create a DocumentBuilder
-//			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//			DocumentBuilder builder = factory.newDocumentBuilder();
-//
-//			// Parse the XML from the URL
-//			Document doc = builder.parse(queryUrl);
-//
-//			// Get the NodeList of oots:Identifier elements within oots:RelatedTo
-//			NodeList relatedToIdentifierElements = doc.getElementsByTagName("oots:Requirement");
-//
-//			// Iterate through the relatedToIdentifier elements
-//			Set<String> requirements = new HashSet<String>();
-//			for (int i = 0; i < relatedToIdentifierElements.getLength(); i++) {
-//				Node identifierNode = relatedToIdentifierElements.item(i);
-//
-//				// Get the text content of the oots:Identifier element within oots:RelatedTo
-//				String identifierValue = identifierNode.getTextContent().trim();
-//
-//				// Append the value to your response
-//				requirements.add(identifierValue);
-//			}
-//
-//			// You can return the response as a String
-//			return requirements.stream().sorted().collect(Collectors.joining());
-//
-//		} catch (ParserConfigurationException | SAXException | IOException e) {
-//			// Handle exceptions
-//			e.printStackTrace();
-//			return "";
-//		}
-//	}
+
 
 	@ApiOperation(value = "Vyhľadať požiadavky", notes = "Získa zoznam požiadaviek pre konkrétnu krajinu a identifikátor procedúry.")
 	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
@@ -251,42 +227,32 @@ public class EvidenceBrokerController {
 				+ countryCode + "&procedure-id=" + procedureId;
 
 		try {
-			// Create a DocumentBuilder
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-
-			// Parse the XML from the URL
 			Document doc = builder.parse(queryUrl);
 
 			// Get the NodeList of oots:Requirement elements
 			NodeList requirementElements = doc.getElementsByTagName("oots:Requirement");
 
-			// Create a list to store the requirement information
 			List<Requirement> requirements = new ArrayList<>();
 
-			// Iterate through the requirement elements
 			for (int i = 0; i < requirementElements.getLength(); i++) {
 				Node requirementNode = requirementElements.item(i);
 
 				if (requirementNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element requirementElement = (Element) requirementNode;
 
-					// Get the "Identifier" and "Name" elements within the "oots:Requirement"
-					// element
 					String identifier = requirementElement.getElementsByTagName("oots:Identifier").item(0)
 							.getTextContent().trim();
 					String name = requirementElement.getElementsByTagName("oots:Name").item(0).getTextContent().trim();
 
-					// Create a RequirementInfo object and add it to the list
 					requirements.add(new Requirement(identifier, name));
 				}
 			}
 
-			// You can return the list of RequirementInfo objects
 			return new RequirementsResponse(requirements);
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// Handle exceptions
 			e.printStackTrace();
 			return new RequirementsResponse();
 		}
@@ -302,43 +268,31 @@ public class EvidenceBrokerController {
 				+ countryCode + "&requirement-id=" + requirementId;
 
 		try {
-			// Create a DocumentBuilder
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-
-			// Parse the XML from the URL
 			Document doc = builder.parse(queryUrl);
 
-			// Get the NodeList of oots:Requirement elements
 			NodeList evidenceTypeElements = doc.getElementsByTagName("oots:EvidenceType");
 
-			// Create a list to store the requirement information
 			List<EvidenceType> evidenceTypes = new ArrayList<>();
 
-			// Iterate through the requirement elements
 			for (int i = 0; i < evidenceTypeElements.getLength(); i++) {
 				Node evidenceTypeNode = evidenceTypeElements.item(i);
 
 				if (evidenceTypeNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element evidenceTypeElement = (Element) evidenceTypeNode;
 
-					// Get the "Identifier" and "Name" elements within the "oots:Requirement"
-					// element
 					String identifier = evidenceTypeElement.getElementsByTagName("oots:EvidenceTypeClassification")
 							.item(0).getTextContent().trim();
 					String name = evidenceTypeElement.getElementsByTagName("oots:Title").item(0).getTextContent()
 							.trim();
 
-					// Create a RequirementInfo object and add it to the list
 					evidenceTypes.add(new EvidenceType(identifier, name));
 				}
 			}
-
-			// You can return the list of RequirementInfo objects
 			return new EvidenceTypesResponse(evidenceTypes);
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// Handle exceptions
 			e.printStackTrace();
 			return new EvidenceTypesResponse();
 		}
