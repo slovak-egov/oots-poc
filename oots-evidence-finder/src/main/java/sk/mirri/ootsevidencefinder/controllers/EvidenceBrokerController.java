@@ -59,7 +59,6 @@ public class EvidenceBrokerController {
 			Document doc = builder.parse(queryUrl);
 			NodeList adminUnitLevel1Elements = doc.getElementsByTagName("oots:AdminUnitLevel1");
 
-			// Iterate through the oots:AdminUnitLevel1 elements
 			Set<String> countryCodes = new HashSet<String>();
 			for (int i = 0; i < adminUnitLevel1Elements.getLength(); i++) {
 				Node adminUnitLevel1 = adminUnitLevel1Elements.item(i);
@@ -82,7 +81,7 @@ public class EvidenceBrokerController {
 	@GetMapping("/lookup/countryCodes/{procedureId}")
 	public List<CountryCode> lookupCountryCodesForProcedure(@PathVariable String procedureId) {
 		String queryUrl = commonservicesUrl
-				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id="
+				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id="
 				+ procedureId;
 
 		LOGGER.debug("Obtaining countries for procedure " + procedureId);
@@ -94,7 +93,6 @@ public class EvidenceBrokerController {
 			Document doc = builder.parse(queryUrl);
 			NodeList adminUnitLevel1Elements = doc.getElementsByTagName("oots:AdminUnitLevel1");
 
-			// Iterate through the oots:AdminUnitLevel1 elements
 			Set<String> countryCodes = new HashSet<String>();
 			for (int i = 0; i < adminUnitLevel1Elements.getLength(); i++) {
 				Node adminUnitLevel1 = adminUnitLevel1Elements.item(i);
@@ -116,7 +114,7 @@ public class EvidenceBrokerController {
 	@GetMapping("/lookup/procedureTypes/{countryCode}")
 	public ProcedureTypesResponse lookupProcedureTypes(@PathVariable String countryCode) {
 		String queryUrl = commonservicesUrl
-				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
+				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
 				+ countryCode;
 
 		try {
@@ -129,7 +127,6 @@ public class EvidenceBrokerController {
 			List<String> procedureIdentifiers = new ArrayList<String>();
 			List<ProcedureType> requirements = new ArrayList<>();
 
-			// Iterate through the requirement elements
 			for (int i = 0; i < requirementElements.getLength(); i++) {
 				Node requirementNode = requirementElements.item(i);
 
@@ -146,7 +143,6 @@ public class EvidenceBrokerController {
 			}
 
 			try {
-				// You can return the list of RequirementInfo objects
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
@@ -155,7 +151,6 @@ public class EvidenceBrokerController {
 							.collect(Collectors.toList()));
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// Handle exceptions
 			e.printStackTrace();
 			return new ProcedureTypesResponse();
 		}
@@ -165,26 +160,16 @@ public class EvidenceBrokerController {
 		List<ProcedureType> procedureTypes = new ArrayList<>();
 
 		try {
-			// URL of the XML file
 			String url = "https://code.europa.eu/oots/tdd/tdd_chapters/-/raw/master/OOTS-EDM/codelists/OOTS/Procedures-CodeList.gc";
-
-			// Open connection to the URL and get the input stream
 			InputStream inputStream = new URL(url).openStream();
 
-			// Create a DocumentBuilderFactory and DocumentBuilder to parse XML
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-
-			// Parse the XML from the input stream
 			Document doc = builder.parse(inputStream);
-
-			// Close the input stream
 			inputStream.close();
 
-			// Get all Row elements from SimpleCodeList
 			NodeList rows = doc.getElementsByTagName("Row");
 
-			// Loop through each Row to find matching identifiers and country code
 			for (int i = 0; i < rows.getLength(); i++) {
 				Element row = (Element) rows.item(i);
 				NodeList values = row.getElementsByTagName("Value");
@@ -203,8 +188,6 @@ public class EvidenceBrokerController {
 					}
 				}
 
-				// If the code matches the given country code and a description is found, add to
-				// the list
 				if (someIdentifiers.contains(code) && !description.isEmpty()) {
 					procedureTypes.add(new ProcedureType(code, description));
 				}
@@ -223,15 +206,13 @@ public class EvidenceBrokerController {
 	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
 	public RequirementsResponse lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) {
 		String queryUrl = commonservicesUrl
-				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
+				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
 				+ countryCode + "&procedure-id=" + procedureId;
 
 		try {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(queryUrl);
-
-			// Get the NodeList of oots:Requirement elements
 			NodeList requirementElements = doc.getElementsByTagName("oots:Requirement");
 
 			List<Requirement> requirements = new ArrayList<>();
@@ -264,7 +245,7 @@ public class EvidenceBrokerController {
 	public EvidenceTypesResponse lookupEvidenceTypes(@PathVariable String countryCode,
 			@RequestParam("requirementId") String requirementId) {
 		String queryUrl = commonservicesUrl
-				+ "/query/eb/rest/search?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code="
+				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code="
 				+ countryCode + "&requirement-id=" + requirementId;
 
 		try {
