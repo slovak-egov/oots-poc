@@ -1,140 +1,55 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.1",
   "info": {
-    "description": "Umožňuje vyhľadávať procedúry, požiadavky, typy dôkazov a poskytovateľov registrovaných pre konkrétne krajiny európskej únie.",
-    "title": "OOTS EVIDENCE FINDER"
+    "title": "OpenAPI definition",
+    "version": "v0"
   },
-  "host": "localhost:8082",
-  "basePath": "/",
-  "tags": [
+  "servers": [
     {
-      "name": "Data Service Directory",
-      "description": "Data Service Directory Controller"
-    },
-    {
-      "name": "Evidence Broker",
-      "description": "Evidence Broker Controller"
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
     }
   ],
   "paths": {
-    "/commonservices/dsd/lookup/dataServices/{countryCode}": {
-      "get": {
-        "tags": [
-          "Data Service Directory"
-        ],
-        "summary": "Vyhľadať poskytovateľov dôkazov",
-        "description": "Získa zoznam poskytovateľov dôkazov pre konkrétnu krajinu a typ dôkazu.",
-        "operationId": "lookupEvidenceProvidersUsingGET",
-        "produces": [
-          "*/*"
-        ],
-        "parameters": [
-          {
-            "name": "countryCode",
-            "in": "path",
-            "description": "countryCode",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "evidenceType",
-            "in": "query",
-            "description": "evidenceType",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/EvidenceProvidersResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/commonservices/eb/lookup/countryCodes": {
+    "/commonservices/eb/lookup/requirements/{countryCode}/{procedureId}": {
       "get": {
         "tags": [
           "Evidence Broker"
         ],
-        "summary": "Vyhľadať zoznam krajín",
-        "description": "Získa zoznam krajín.",
-        "operationId": "lookupCountryCodesUsingGET",
-        "produces": [
-          "*/*"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/CountryCodesResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/commonservices/eb/lookup/evidenceTypes/{countryCode}": {
-      "get": {
-        "tags": [
-          "Evidence Broker"
-        ],
-        "summary": "Vyhľadať zoznam typov dôkazov",
-        "description": "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.",
-        "operationId": "lookupEvidenceTypesUsingGET",
-        "produces": [
-          "*/*"
-        ],
+        "summary": "Vyhľadať požiadavky",
+        "description": "Získa zoznam požiadaviek pre konkrétnu krajinu a identifikátor procedúry.",
+        "operationId": "lookupRequirements",
         "parameters": [
           {
             "name": "countryCode",
             "in": "path",
-            "description": "countryCode",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "name": "requirementId",
-            "in": "query",
-            "description": "requirementId",
+            "name": "procedureId",
+            "in": "path",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/EvidenceTypesResponse"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Requirement"
+                  }
+                }
+              }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }
@@ -146,348 +61,306 @@
         ],
         "summary": "Vyhľadať zoznam typov procedúr",
         "description": "Získa zoznam procedúr pre konkrétnu krajinu.",
-        "operationId": "lookupProcedureTypesUsingGET",
-        "produces": [
-          "*/*"
-        ],
+        "operationId": "lookupProcedureTypes",
         "parameters": [
           {
             "name": "countryCode",
             "in": "path",
-            "description": "countryCode",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ProcedureTypesResponse"
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProcedureType"
+                  }
+                }
+              }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }
     },
-    "/commonservices/eb/lookup/requirements/{countryCode}/{procedureId}": {
+    "/commonservices/eb/lookup/evidenceTypes/{countryCode}": {
       "get": {
         "tags": [
           "Evidence Broker"
         ],
-        "summary": "Vyhľadať požiadavky",
-        "description": "Získa zoznam požiadaviek pre konkrétnu krajinu a identifikátor procedúry.",
-        "operationId": "lookupRequirementsUsingGET",
-        "produces": [
-          "*/*"
-        ],
+        "summary": "Vyhľadať zoznam typov dôkazov",
+        "description": "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.",
+        "operationId": "lookupEvidenceTypes",
         "parameters": [
           {
             "name": "countryCode",
             "in": "path",
-            "description": "countryCode",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "name": "procedureId",
-            "in": "path",
-            "description": "procedureId",
+            "name": "requirementId",
+            "in": "query",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EvidenceType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commonservices/eb/lookup/evidenceTypes/{countryCode}/{procedureId}": {
+      "get": {
+        "tags": [
+          "Evidence Broker"
+        ],
+        "summary": "Vyhľadať zoznam typov dôkazov",
+        "description": "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.",
+        "operationId": "lookupEvidenceTypesForProcedures",
+        "parameters": [
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
             "schema": {
-              "$ref": "#/definitions/RequirementsResponse"
+              "type": "string"
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          {
+            "name": "procedureId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EvidenceType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commonservices/eb/lookup/countryCodes": {
+      "get": {
+        "tags": [
+          "Evidence Broker"
+        ],
+        "summary": "Vyhľadať zoznam krajín",
+        "description": "Získa zoznam krajín.",
+        "operationId": "lookupCountryCodes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CountryCode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commonservices/eb/lookup/countryCodes/{procedureId}": {
+      "get": {
+        "tags": [
+          "Evidence Broker"
+        ],
+        "summary": "Vyhľadať zoznam krajín pre procedúru",
+        "description": "Získa zoznam krajín pre danú procedúru.",
+        "operationId": "lookupCountryCodesForProcedure",
+        "parameters": [
+          {
+            "name": "procedureId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CountryCode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commonservices/dsd/lookup/dataServices/{countryCode}": {
+      "get": {
+        "tags": [
+          "Data Service Directory"
+        ],
+        "summary": "Vyhľadať poskytovateľov dôkazov",
+        "description": "Získa zoznam poskytovateľov dôkazov pre konkrétnu krajinu a typ dôkazu.",
+        "operationId": "lookupEvidenceProviders",
+        "parameters": [
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
+          {
+            "name": "evidenceType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EvidenceProvider"
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
   },
-  "definitions": {
-    "CountryCode": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "example": "Slovakia",
-          "description": "Názov krajiny"
-        },
-        "id": {
-          "type": "string",
-          "example": "SK",
-          "description": "Skratka"
-        }
-      },
-      "title": "CountryCode",
-      "description": "Skratka krajiny a názov"
-    },
-    "CountryCodesResponse": {
-      "type": "object",
-      "properties": {
-        "countryCodes": {
-          "type": "array",
-          "example": {
-            "countryCodes": [
-              {
-                "id": "AT",
-                "description": "Austria"
-              },
-              {
-                "id": "BE",
-                "description": "Belgium"
-              },
-              {
-                "id": "CY",
-                "description": "Cyprus"
-              },
-              {
-                "id": "CZ",
-                "description": "Czechia"
-              },
-              {
-                "id": "DE",
-                "description": "Germany"
-              },
-              {
-                "id": "LT",
-                "description": "Lithuania"
-              },
-              {
-                "id": "LU",
-                "description": "Luxembourg"
-              },
-              {
-                "id": "LV",
-                "description": "Latvia"
-              },
-              {
-                "id": "MT",
-                "description": "Malta"
-              },
-              {
-                "id": "NL",
-                "description": "Netherlands (the)"
-              },
-              {
-                "id": "PL",
-                "description": "Poland"
-              },
-              {
-                "id": "PT",
-                "description": "Portugal"
-              },
-              {
-                "id": "RO",
-                "description": "Romania"
-              },
-              {
-                "id": "SE",
-                "description": "Sweden"
-              },
-              {
-                "id": "SI",
-                "description": "Slovenia"
-              },
-              {
-                "id": "SK",
-                "description": "Slovakia"
-              }
-            ]
+  "components": {
+    "schemas": {
+      "Requirement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifikátor požiadavky",
+            "example": "https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42"
           },
-          "description": "Zoznam skratiek krajín a názvov",
-          "items": {
-            "$ref": "#/definitions/CountryCode"
+          "description": {
+            "type": "string",
+            "description": "Popis požiadavky",
+            "example": "Proof of tertiary education diploma/certificate/degree"
           }
-        }
-      },
-      "title": "CountryCodesResponse",
-      "description": "Odpoveď so zoznamom krajín"
-    },
-    "EvidenceProvider": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "example": "SK Ministry of the Projectathon",
-          "description": "Popis poskytovateľa"
         },
-        "id": {
-          "type": "string",
-          "example": "sk_test_ap",
-          "description": "Identifikátor poskytovateľa"
-        }
+        "description": "Požiadavka"
       },
-      "title": "EvidenceProvider",
-      "description": "Poskytovateľ dôkazu"
-    },
-    "EvidenceProvidersResponse": {
-      "type": "object",
-      "properties": {
-        "evidenceProviders": {
-          "type": "array",
-          "example": {
-            "evidenceProviders": [
-              {
-                "id": "sk_test_ap",
-                "description": "SK Ministry of the Projectathon"
-              }
-            ]
+      "ProcedureType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifikátor typu procedúry",
+            "example": "T1"
           },
-          "description": "Zoznam poskytovateľov dôkazov",
-          "items": {
-            "$ref": "#/definitions/EvidenceProvider"
+          "description": {
+            "type": "string",
+            "description": "Popis typu procedúry",
+            "example": "Applying for a tertiary education study financing, such as study grants and loans from a public body or institution"
           }
-        }
-      },
-      "title": "EvidenceProvidersResponse",
-      "description": "Odpoveď so zoznamom poskytovateľov dôkazov"
-    },
-    "EvidenceType": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "example": "EU-Wide Diploma/Bachelor's Degree",
-          "description": "Popis typu dôkazu"
         },
-        "id": {
-          "type": "string",
-          "example": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962",
-          "description": "Identifikátor typu dôkazu"
-        }
+        "description": "Typ procedúry"
       },
-      "title": "EvidenceType",
-      "description": "Typ dôkazu"
-    },
-    "EvidenceTypesResponse": {
-      "type": "object",
-      "properties": {
-        "evidenceTypes": {
-          "type": "array",
-          "example": {
-            "evidenceTypes": [
-              {
-                "id": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962",
-                "description": "EU-Wide Diploma/Bachelor's Degree"
-              }
-            ]
+      "EvidenceType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifikátor typu dôkazu",
+            "example": "https://sr.oots.tech.ec.europa.eu/evidencetypeclassifications/EU/b6a49e54-8b3c-4688-acad-380440dc5962"
           },
-          "description": "Zoznam typov dôkazov",
-          "items": {
-            "$ref": "#/definitions/EvidenceType"
+          "description": {
+            "type": "string",
+            "description": "Popis typu dôkazu",
+            "example": "EU-Wide Diploma/Bachelor's Degree"
           }
-        }
-      },
-      "title": "EvidenceTypesResponse",
-      "description": "Odpoveď so zoznamom typov dôkazov"
-    },
-    "ProcedureType": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "example": "Applying for a tertiary education study financing, such as study grants and loans from a public body or institution",
-          "description": "Popis typu procedúry"
         },
-        "id": {
-          "type": "string",
-          "example": "T1",
-          "description": "Identifikátor typu procedúry"
-        }
+        "description": "Typ dôkazu"
       },
-      "title": "ProcedureType",
-      "description": "Tyz procedúry"
-    },
-    "ProcedureTypesResponse": {
-      "type": "object",
-      "properties": {
-        "procedureTypes": {
-          "type": "array",
-          "example": {
-            "procedureTypes": [
-              {
-                "id": "T1",
-                "description": "Applying for a tertiary education study financing, such as study grants and loans from a public body or institution"
-              },
-              {
-                "id": "V1",
-                "description": "Registering a change of address"
-              }
-            ]
+      "CountryCode": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "Skratka",
+            "example": "SK"
           },
-          "description": "Zoznam typov procedúr",
-          "items": {
-            "$ref": "#/definitions/ProcedureType"
+          "countryName": {
+            "type": "string",
+            "description": "Názov krajiny",
+            "example": "Slovakia"
           }
-        }
-      },
-      "title": "ProcedureTypesResponse",
-      "description": "Odpoveď so zoznamom typov procedúr"
-    },
-    "Requirement": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string",
-          "example": "Proof of tertiary education diploma/certificate/degree",
-          "description": "Popis požiadavky"
         },
-        "id": {
-          "type": "string",
-          "example": "https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42",
-          "description": "Identifikátor požiadavky"
-        }
+        "description": "Skratka krajiny a názov"
       },
-      "title": "Requirement",
-      "description": "Požiadavka"
-    },
-    "RequirementsResponse": {
-      "type": "object",
-      "properties": {
-        "requirements": {
-          "type": "array",
-          "example": {
-            "requirements": [
-              {
-                "id": "https://sr.oots.tech.ec.europa.eu/requirements/9196feb5-a88f-488d-8aad-7842cf64d1ac",
-                "description": "Proof of secondary education diploma/certificate"
-              },
-              {
-                "id": "https://sr.oots.tech.ec.europa.eu/requirements/f8a6a284-34e9-42c7-9733-63b5c4f4aa42",
-                "description": "Proof of tertiary education diploma/certificate/degree"
-              }
-            ]
+      "EvidenceProvider": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identifikátor poskytovateľa",
+            "example": "sk_test_ap"
           },
-          "description": "Zoznam požiadaviek",
-          "items": {
-            "$ref": "#/definitions/Requirement"
+          "description": {
+            "type": "string",
+            "description": "Popis poskytovateľa",
+            "example": "SK Ministry of the Projectathon"
           }
-        }
-      },
-      "title": "RequirementsResponse",
-      "description": "Odpoveď so zoznamom požiadaviek"
+        },
+        "description": "Poskytovateľ dôkazu"
+      }
     }
   }
 }
