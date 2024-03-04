@@ -1,26 +1,40 @@
 package sk.mirri.ootsevidencefinder.evidencebroker.data;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel(description = "Skratka krajiny a názov")
+import java.util.Objects;
+
+@Schema(description = "Skratka krajiny a názov")
 public class CountryCode {
-	@ApiModelProperty(value = "Skratka", example = "SK")
-	private String countryCode;
+    @Schema(description = "Skratka", example = "SK")
+    private String countryCode;
 
-	@ApiModelProperty(value = "Názov krajiny", example = "Slovakia")
-	private String countryName;
+    @Schema(description = "Názov krajiny", example = "Slovakia")
+    private String countryName;
 
-	public CountryCode(String id, String description) {
-		this.countryCode = id;
-		this.countryName = description;
-	}
+    public CountryCode(String id, String description) {
+        this.countryCode = id;
+        this.countryName = description;
+    }
 
-	public String getCountryCode() {
-		return countryCode;
-	}
+    public String getCountryCode() {
+        return countryCode;
+    }
 
-	public String getCountryName() {
-		return countryName;
-	}
+    public String getCountryName() {
+        return countryName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CountryCode that = (CountryCode) o;
+        return Objects.equals(countryCode, that.countryCode) && Objects.equals(countryName, that.countryName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(countryCode, countryName);
+    }
 }

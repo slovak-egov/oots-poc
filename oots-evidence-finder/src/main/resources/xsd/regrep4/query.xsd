@@ -68,6 +68,7 @@
           <attribute name="federated" type="boolean" use="optional" default="false"/>
           <attribute name="federation" type="anyURI" use="optional"/>
           <attribute name="format" type="string" use="optional" default="application/ebrim+xml"/>
+          <attribute ref="xml:lang" use="optional"/>
           <attribute name="startIndex" type="integer" default="0"/>
           <attribute name="maxResults" type="integer" default="-1"/>
           <attribute name="depth" type="integer" default="0"/>

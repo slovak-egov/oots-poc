@@ -1,281 +1,261 @@
 package sk.mirri.ootsevidencefinder.controllers;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
+import eu.europa.oots.binding.regrep.query.QueryResponse;
+import eu.europa.oots.binding.regrep.rim.AnyValueType;
+import eu.europa.oots.binding.regrep.rim.RegistryObjectType;
+import eu.europa.oots.binding.sdg.EvidenceTypeListType;
+import eu.europa.oots.binding.sdg.RequirementType;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.JAXBException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.CountryCode;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceType;
-import sk.mirri.ootsevidencefinder.evidencebroker.data.EvidenceTypesResponse;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.ProcedureType;
-import sk.mirri.ootsevidencefinder.evidencebroker.data.ProcedureTypesResponse;
 import sk.mirri.ootsevidencefinder.evidencebroker.data.Requirement;
-import sk.mirri.ootsevidencefinder.evidencebroker.data.RequirementsResponse;
 
-@Api(value = "Evidence Broker", tags = { "Evidence Broker" })
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+@Tag(name = "Evidence Broker"/*, tags = {"Evidence Broker"}*/)
 @RestController
 @RequestMapping("/commonservices/eb")
-public class EvidenceBrokerController {
+public class EvidenceBrokerController extends RegrepService {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(EvidenceBrokerController.class);
-	private final Map<String, String> countryCodeMap;
-
-	@Value("${eb.url}")
-	private String commonservicesUrl;
-
-	@Autowired
-	public EvidenceBrokerController(Map<String, String> countryCodeMap) {
-		this.countryCodeMap = countryCodeMap;
-	}
-
-	@ApiOperation(value = "Vyhľadať zoznam krajín", notes = "Získa zoznam krajín.")
-	@GetMapping("/lookup/countryCodes")
-	public List<CountryCode> lookupCountryCodes() {
-		String queryUrl = commonservicesUrl
-				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction";
-
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(queryUrl);
-			NodeList adminUnitLevel1Elements = doc.getElementsByTagName("oots:AdminUnitLevel1");
-
-			Set<String> countryCodes = new HashSet<String>();
-			for (int i = 0; i < adminUnitLevel1Elements.getLength(); i++) {
-				Node adminUnitLevel1 = adminUnitLevel1Elements.item(i);
-				String adminUnitLevel1Value = adminUnitLevel1.getTextContent();
-				countryCodes.add(adminUnitLevel1Value);
-			}
-
-			return countryCodes.stream().sorted()
-					.map(item -> new CountryCode(item, countryCodeMap.getOrDefault(item, item)))
-					.collect(Collectors.toList());
-
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
-			return Collections.emptyList();
-		}
-	}
-
-	@CrossOrigin(origins = "*")
-	@ApiOperation(value = "Vyhľadať zoznam krajín pre procedúru", notes = "Získa zoznam krajín pre danú procedúru.")
-	@GetMapping("/lookup/countryCodes/{procedureId}")
-	public List<CountryCode> lookupCountryCodesForProcedure(@PathVariable String procedureId) {
-		String queryUrl = commonservicesUrl
-				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id="
-				+ procedureId;
-
-		LOGGER.debug("Obtaining countries for procedure " + procedureId);
-
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-
-			Document doc = builder.parse(queryUrl);
-			NodeList adminUnitLevel1Elements = doc.getElementsByTagName("oots:AdminUnitLevel1");
-
-			Set<String> countryCodes = new HashSet<String>();
-			for (int i = 0; i < adminUnitLevel1Elements.getLength(); i++) {
-				Node adminUnitLevel1 = adminUnitLevel1Elements.item(i);
-				String adminUnitLevel1Value = adminUnitLevel1.getTextContent();
-				countryCodes.add(adminUnitLevel1Value);
-			}
-
-			return countryCodes.stream().sorted()
-					.map(item -> new CountryCode(item, countryCodeMap.getOrDefault(item, item)))
-					.collect(Collectors.toList());
-
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
-			return Collections.emptyList();
-		}
-	}
-
-	@ApiOperation(value = "Vyhľadať zoznam typov procedúr", notes = "Získa zoznam procedúr pre konkrétnu krajinu.")
-	@GetMapping("/lookup/procedureTypes/{countryCode}")
-	public ProcedureTypesResponse lookupProcedureTypes(@PathVariable String countryCode) {
-		String queryUrl = commonservicesUrl
-				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
-				+ countryCode;
-
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(queryUrl);
-
-			NodeList requirementElements = doc.getElementsByTagName("oots:ReferenceFramework");
-
-			List<String> procedureIdentifiers = new ArrayList<String>();
-			List<ProcedureType> requirements = new ArrayList<>();
-
-			for (int i = 0; i < requirementElements.getLength(); i++) {
-				Node requirementNode = requirementElements.item(i);
-
-				if (requirementNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element requirementElement = (Element) requirementNode;
+    private static Logger LOGGER = LoggerFactory.getLogger(EvidenceBrokerController.class);
+    private final Map<String, String> countryCodeMap;
 
 
-					String identifier = requirementElement.getElementsByTagName("oots:RelatedTo").item(0)
-							.getTextContent().trim();
-					String name = requirementElement.getElementsByTagName("oots:Title").item(0).getTextContent().trim();
+    @Value("${eb.url}")
+    private String commonservicesUrl;
 
-					requirements.add(new ProcedureType(identifier, name));
-				}
-			}
+    @Autowired
+    public EvidenceBrokerController(Map<String, String> countryCodeMap) {
+        this.countryCodeMap = countryCodeMap;
+    }
 
-			try {
-			} catch (Exception e) {
-				throw new RuntimeException(e);
-			}
-			return new ProcedureTypesResponse(
-					/* translateProcedureTypes(procedureIdentifiers, countryCode) */ requirements.stream().distinct()
-							.collect(Collectors.toList()));
+    @Operation(summary = "Vyhľadať zoznam krajín", description = "Získa zoznam krajín.")
+    @GetMapping("/lookup/countryCodes")
+    public List<CountryCode> lookupCountryCodes() throws IOException, JAXBException {
+        String queryUrl = commonservicesUrl
+                + "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction";
 
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
-			return new ProcedureTypesResponse();
-		}
-	}
+        URL url = new URL(queryUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
 
-	private List<ProcedureType> translateProcedureTypes(List<String> someIdentifiers, String aLanguageCode) {
-		List<ProcedureType> procedureTypes = new ArrayList<>();
+        // connection.setConnectTimeout(5000);
+        // connection.setReadTimeout(5000);
 
-		try {
-			String url = "https://code.europa.eu/oots/tdd/tdd_chapters/-/raw/master/OOTS-EDM/codelists/OOTS/Procedures-CodeList.gc";
-			InputStream inputStream = new URL(url).openStream();
+        int responseCode = connection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            connection.getInputStream();
+        } else {
+            throw new IOException("Failed to fetch data from URL. Response code: " + responseCode);
+        }
 
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(inputStream);
-			inputStream.close();
+        QueryResponse resp = parseFromInput(connection.getInputStream());
 
-			NodeList rows = doc.getElementsByTagName("Row");
+        if (resp == null || !resp.getStatus().contains("Success")) {
+            LOGGER.info("Status {}", resp.getStatus());
+            return null;
+        }
 
-			for (int i = 0; i < rows.getLength(); i++) {
-				Element row = (Element) rows.item(i);
-				NodeList values = row.getElementsByTagName("Value");
+        List<RegistryObjectType> registryObjectTypes = resp.getRegistryObjectList().getRegistryObject();
 
-				String code = "";
-				String description = "";
+        return registryObjectTypes.stream().flatMap(item ->
+        {
+            var el = (JAXBElement<RequirementType>) ((AnyValueType) item.getSlot().get(0).getSlotValue()).getAny();
+            return el.getValue().getReferenceFramework().stream().flatMap(referenceFrameworkType -> {
+                return referenceFrameworkType.getJurisdiction().stream().map(jurisdictionType -> {
+                    return new CountryCode(jurisdictionType.getAdminUnitLevel1().getValue(), countryCodeMap.getOrDefault(jurisdictionType.getAdminUnitLevel1().getValue(), jurisdictionType.getAdminUnitLevel1().getValue()));
+                }).distinct();
+            }).distinct();
+        }).distinct().collect(Collectors.toList());
+    }
 
-				for (int j = 0; j < values.getLength(); j++) {
-					Element value = (Element) values.item(j);
-					String columnRef = value.getAttribute("ColumnRef");
+    @CrossOrigin(origins = "*")
+    @Operation(summary = "Vyhľadať zoznam krajín pre procedúru", description = "Získa zoznam krajín pre danú procedúru.")
+    @GetMapping("/lookup/countryCodes/{procedureId}")
+    public List<CountryCode> lookupCountryCodesForProcedure(@PathVariable String procedureId) throws IOException, JAXBException {
+        String queryUrl = commonservicesUrl
+                + "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&procedure-id="
+                + procedureId;
 
-					if (columnRef.equals("code")) {
-						code = value.getElementsByTagName("SimpleValue").item(0).getTextContent();
-					} else if (columnRef.startsWith("name-") && columnRef.substring(5).equals(aLanguageCode)) {
-						description = value.getElementsByTagName("SimpleValue").item(0).getTextContent();
-					}
-				}
+        URL url = new URL(queryUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
 
-				if (someIdentifiers.contains(code) && !description.isEmpty()) {
-					procedureTypes.add(new ProcedureType(code, description));
-				}
-			}
+        // connection.setConnectTimeout(5000);
+        // connection.setReadTimeout(5000);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        int responseCode = connection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            connection.getInputStream();
+        } else {
+            throw new IOException("Failed to fetch data from URL. Response code: " + responseCode);
+        }
 
-		return procedureTypes;
-	}
+        QueryResponse resp = parseFromInput(connection.getInputStream());
 
+        if (resp == null || !resp.getStatus().contains("Success")) {
+            LOGGER.info("Status {}", resp.getStatus());
+            return null;
+        }
 
+        List<RegistryObjectType> registryObjectTypes = resp.getRegistryObjectList().getRegistryObject();
 
-	@ApiOperation(value = "Vyhľadať požiadavky", notes = "Získa zoznam požiadaviek pre konkrétnu krajinu a identifikátor procedúry.")
-	@GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
-	public RequirementsResponse lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) {
-		String queryUrl = commonservicesUrl
-				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
-				+ countryCode + "&procedure-id=" + procedureId;
+        return registryObjectTypes.stream().flatMap(item ->
+        {
+            var el = (JAXBElement<RequirementType>) ((AnyValueType) item.getSlot().get(0).getSlotValue()).getAny();
+            return el.getValue().getReferenceFramework().stream().flatMap(referenceFrameworkType -> {
+                return referenceFrameworkType.getJurisdiction().stream().map(jurisdictionType -> {
+                    return new CountryCode(jurisdictionType.getAdminUnitLevel1().getValue(), countryCodeMap.getOrDefault(jurisdictionType.getAdminUnitLevel1().getValue(), jurisdictionType.getAdminUnitLevel1().getValue()));
+                }).distinct();
+            }).distinct();
+        }).distinct().collect(Collectors.toList());
 
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(queryUrl);
-			NodeList requirementElements = doc.getElementsByTagName("oots:Requirement");
+    }
 
-			List<Requirement> requirements = new ArrayList<>();
+    @Operation(summary = "Vyhľadať zoznam typov procedúr", description = "Získa zoznam procedúr pre konkrétnu krajinu.")
+    @GetMapping("/lookup/procedureTypes/{countryCode}")
+    public List<ProcedureType> lookupProcedureTypes(@PathVariable String countryCode) throws IOException, JAXBException {
+        String queryUrl = commonservicesUrl
+                + "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
+                + countryCode;
 
-			for (int i = 0; i < requirementElements.getLength(); i++) {
-				Node requirementNode = requirementElements.item(i);
+        URL url = new URL(queryUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
 
-				if (requirementNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element requirementElement = (Element) requirementNode;
+        // connection.setConnectTimeout(5000);
+        // connection.setReadTimeout(5000);
 
-					String identifier = requirementElement.getElementsByTagName("oots:Identifier").item(0)
-							.getTextContent().trim();
-					String name = requirementElement.getElementsByTagName("oots:Name").item(0).getTextContent().trim();
+        int responseCode = connection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            connection.getInputStream();
+        } else {
+            throw new IOException("Failed to fetch data from URL. Response code: " + responseCode);
+        }
 
-					requirements.add(new Requirement(identifier, name));
-				}
-			}
+        QueryResponse resp = parseFromInput(connection.getInputStream());
 
-			return new RequirementsResponse(requirements);
+        if (resp == null || !resp.getStatus().contains("Success")) {
+            LOGGER.info("Status {}", resp.getStatus());
+            return null;
+        }
 
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
-			return new RequirementsResponse();
-		}
+        List<RegistryObjectType> registryObjectTypes = resp.getRegistryObjectList().getRegistryObject();
 
-	}
+        return registryObjectTypes.stream().flatMap(item ->
+        {
+            var el = (JAXBElement<RequirementType>) ((AnyValueType) item.getSlot().get(0).getSlotValue()).getAny();
+            return el.getValue().getReferenceFramework().stream().flatMap(referenceFrameworkType -> {
+                return referenceFrameworkType.getRelatedTo().stream().map(relatedTo -> {
+                    return new ProcedureType(relatedTo.getIdentifier().getValue(), referenceFrameworkType.getTitle().get(0).getValue());
+                }).distinct();
+            });
+        }).distinct().collect(Collectors.toList());
+    }
 
-	@ApiOperation(value = "Vyhľadať zoznam typov dôkazov", notes = "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.")
-	@GetMapping("/lookup/evidenceTypes/{countryCode}")
-	public EvidenceTypesResponse lookupEvidenceTypes(@PathVariable String countryCode,
-			@RequestParam("requirementId") String requirementId) {
-		String queryUrl = commonservicesUrl
-				+ "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code="
-				+ countryCode + "&requirement-id=" + requirementId;
+    @Operation(summary = "Vyhľadať požiadavky", description = "Získa zoznam požiadaviek pre konkrétnu krajinu a identifikátor procedúry.")
+    @GetMapping("/lookup/requirements/{countryCode}/{procedureId}")
+    public List<Requirement> lookupRequirements(@PathVariable String countryCode, @PathVariable String procedureId) throws IOException, JAXBException {
+        String queryUrl = commonservicesUrl
+                + "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:requirements-by-procedure-and-jurisdiction&country-code="
+                + countryCode + "&procedure-id=" + procedureId;
 
-		try {
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(queryUrl);
+        URL url = new URL(queryUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
 
-			NodeList evidenceTypeElements = doc.getElementsByTagName("oots:EvidenceType");
+        // connection.setConnectTimeout(5000);
+        // connection.setReadTimeout(5000);
 
-			List<EvidenceType> evidenceTypes = new ArrayList<>();
+        int responseCode = connection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            connection.getInputStream();
+        } else {
+            throw new IOException("Failed to fetch data from URL. Response code: " + responseCode);
+        }
 
-			for (int i = 0; i < evidenceTypeElements.getLength(); i++) {
-				Node evidenceTypeNode = evidenceTypeElements.item(i);
+        QueryResponse resp = parseFromInput(connection.getInputStream());
 
-				if (evidenceTypeNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element evidenceTypeElement = (Element) evidenceTypeNode;
+        if (resp == null || !resp.getStatus().contains("Success")) {
+            LOGGER.info("Status {}", resp.getStatus());
+            return null;
+        }
 
-					String identifier = evidenceTypeElement.getElementsByTagName("oots:EvidenceTypeClassification")
-							.item(0).getTextContent().trim();
-					String name = evidenceTypeElement.getElementsByTagName("oots:Title").item(0).getTextContent()
-							.trim();
+        List<RegistryObjectType> registryObjectTypes = resp.getRegistryObjectList().getRegistryObject();
 
-					evidenceTypes.add(new EvidenceType(identifier, name));
-				}
-			}
-			return new EvidenceTypesResponse(evidenceTypes);
+        return registryObjectTypes.stream().map(item ->
+        {
+            var el = (JAXBElement<RequirementType>) ((AnyValueType) item.getSlot().get(0).getSlotValue()).getAny();
+            return new Requirement(el.getValue().getIdentifier().getValue(), el.getValue().getName().get(0).getValue());//el.getValue();
+        }).collect(Collectors.toList());
+    }
 
-		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
-			return new EvidenceTypesResponse();
-		}
-	}
+    @Operation(summary = "Vyhľadať zoznam typov dôkazov", description = "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.")
+    @GetMapping("/lookup/evidenceTypes/{countryCode}")
+    public List<EvidenceType> lookupEvidenceTypes(@PathVariable String countryCode,
+                                                  @RequestParam("requirementId") String requirementId) throws IOException, JAXBException {
+        String queryUrl = commonservicesUrl
+                + "?queryId=urn:fdc:oots:eb:ebxml-regrep:queries:evidence-types-by-requirement-and-jurisdiction&country-code="
+                + countryCode + "&requirement-id=" + requirementId;
+
+        URL url = new URL(queryUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        // connection.setConnectTimeout(5000);
+        // connection.setReadTimeout(5000);
+
+        int responseCode = connection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            connection.getInputStream();
+        } else {
+            throw new IOException("Failed to fetch data from URL. Response code: " + responseCode);
+        }
+
+        QueryResponse resp = parseFromInput(connection.getInputStream());
+
+        if (resp == null || !resp.getStatus().contains("Success")) {
+            LOGGER.info("Status {}", resp.getStatus());
+            return null;
+        }
+
+        List<RegistryObjectType> registryObjectTypes = resp.getRegistryObjectList().getRegistryObject();
+
+        return registryObjectTypes.stream().flatMap(item ->
+        {
+            var el = (JAXBElement<RequirementType>) ((AnyValueType) item.getSlot().get(0).getSlotValue()).getAny();
+            return el.getValue().getEvidenceTypeList().stream().map(EvidenceTypeListType::getEvidenceType).flatMap(List::stream).map(evidenceTypeType -> {
+                return new EvidenceType(evidenceTypeType.getEvidenceTypeClassification(), evidenceTypeType.getTitle().get(0).getValue());
+            });
+        }).distinct().collect(Collectors.toList());
+    }
+
+    @Operation(summary = "Vyhľadať zoznam typov dôkazov", description = "Získa zoznam typov dôkazov pre konkrétnu krajinu a identifikátor požiadavky.")
+    @GetMapping("/lookup/evidenceTypes/{countryCode}/{procedureId}")
+    public List<EvidenceType> lookupEvidenceTypesForProcedures(@PathVariable String countryCode,
+                                                               @PathVariable String procedureId) throws IOException, JAXBException {
+        List<Requirement> requirements = lookupRequirements(countryCode, procedureId);
+
+        Set<EvidenceType> evidenceTypes = new HashSet<>();
+        for (Requirement requirement : requirements) {
+            evidenceTypes.addAll(lookupEvidenceTypes(countryCode, requirement.getId()));
+        }
+        return evidenceTypes.stream().toList();
+    }
 }

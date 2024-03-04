@@ -113,6 +113,7 @@
         It is used within the InternationalStringType as the type of the LocalizedString sub-element.
       </documentation>
     </annotation>
+    <attribute ref="xml:lang" use="optional" default="en-US"/> 
     <attribute name="value" type="tns:FreeFormText" use="required"/>
   </complexType>
   
@@ -471,6 +472,7 @@
       </documentation>
     </annotation>
     <sequence>
+      <element ref="tns:RegistryObject"  minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
   <element name="RegistryObjectList" type="tns:RegistryObjectListType"/>
@@ -624,6 +626,7 @@
       xlink:role="http://www.w3.org/2005/08/wsdl").
       </documentation>
     </annotation>
+    <attributeGroup ref="xlink:simpleAttrs"/>
   </complexType>
   
   <complexType name="ExtrinsicObjectType">
@@ -773,6 +776,7 @@
     <complexContent>
       <extension base="tns:RegistryObjectType">
         <sequence>
+          <element ref="tns:RegistryObjectList" minOccurs="0" maxOccurs="1"/>
         </sequence>
       </extension>
     </complexContent>
@@ -1048,6 +1052,7 @@
     <complexContent>
       <extension base="tns:ExtensibleObjectType">
         <sequence>          
+          <element name="NotifyTo" type="wsa:EndpointReferenceType" minOccurs="1" maxOccurs="1"/>
         </sequence>
         <attribute name="notificationOption" type="tns:objectReferenceType" default="urn:oasis:names:tc:ebxml-regrep:NotificationOptionType:ObjectRefs"  />
       </extension>
